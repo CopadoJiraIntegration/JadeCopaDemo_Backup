@@ -5,6 +5,10 @@
         <name>ERPSystem_c__c</name>
     </fields>
     <fields>
+        <label><!-- Is Payment Due --></label>
+        <name>Is_Payment_Due__c</name>
+    </fields>
+    <fields>
         <label><!-- Last Sync Date --></label>
         <name>LastSyncDate__c</name>
     </fields>
@@ -19,6 +23,22 @@
     <fields>
         <label><!-- Oracle Contact ID --></label>
         <name>OracleContactID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Status --></label>
+        <name>Payment_Status_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Status --></label>
+        <name>Payment_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Due</masterLabel>
+            <translation><!-- Due --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Ready to be Synced --></label>

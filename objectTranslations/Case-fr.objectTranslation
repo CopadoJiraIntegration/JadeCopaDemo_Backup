@@ -5,6 +5,18 @@
         <name>Amount__c</name>
     </fields>
     <fields>
+        <label><!-- Customer Satisfaction --></label>
+        <name>Customer_Satisfaction__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Response Time (In Days) --></label>
+        <name>First_Response_Time_In_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Response Time (In Min) --></label>
+        <name>First_Response_Time_In_Min__c</name>
+    </fields>
+    <fields>
         <help><!-- This field displays when was the first response added by the agent on case --></help>
         <label><!-- First Response Time --></label>
         <name>First_Response_Time__c</name>

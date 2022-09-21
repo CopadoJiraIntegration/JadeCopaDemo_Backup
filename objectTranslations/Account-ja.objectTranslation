@@ -38,8 +38,8 @@
         <name>ERPSystem__c</name>
     </fields>
     <fields>
-        <label><!-- Has Support Plan --></label>
-        <name>Has_Support_Plan__c</name>
+        <label><!-- Has Prime Support --></label>
+        <name>Has_Prime_Support__c</name>
     </fields>
     <fields>
         <label><!-- Last Sync Date --></label>

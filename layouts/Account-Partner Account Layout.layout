@@ -55,7 +55,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Has_Support_Plan__c</field>
+                <field>Has_Prime_Support__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

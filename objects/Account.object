@@ -358,10 +358,10 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
-        <fullName>Has_Support_Plan__c</fullName>
+        <fullName>Has_Prime_Support__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Has Support Plan</label>
+        <label>Has Prime Support</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>

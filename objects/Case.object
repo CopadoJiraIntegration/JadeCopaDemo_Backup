@@ -214,11 +214,19 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>New</fullName>
             <default>true</default>
         </values>
         <values>
             <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Customer</fullName>
             <default>false</default>
         </values>
     </businessProcesses>
@@ -317,10 +325,65 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Customer_Satisfaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Satisfaction</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>First_Response_Time_In_Days__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(
+
+FLOOR(First_Response_Time__c - CreatedDate)
+
+) &amp; &quot; Day(s) &quot; &amp;
+
+TEXT(
+
+ROUND(MOD((First_Response_Time__c - CreatedDate)*24,24),0)
+
+) &amp;&quot; Hour(s) &quot; &amp;
+
+TEXT(
+
+ROUND(MOD((First_Response_Time__c - CreatedDate)*1440,60),0)
+
+) &amp;&quot; Minute(s) &quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Response Time (In Days)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Response_Time_In_Min__c</fullName>
+        <externalId>false</externalId>
+        <formula>(First_Response_Time__c - CreatedDate)*1440</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Response Time (In Min)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>First_Response_Time__c</fullName>
@@ -584,11 +647,23 @@
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
+                <fullName>Chat</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>NetSuite</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Support Portal</fullName>
                 <default>false</default>
             </values>
             <values>
