@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <label><!-- JIRA key --></label>
+        <name>copado_JIRA_key__c</name>
+    </fields>
+    <fields>
         <label><!-- Comments --></label>
         <name>copado__Comments__c</name>
     </fields>

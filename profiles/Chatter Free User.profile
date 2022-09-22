@@ -10253,6 +10253,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>copado__Epic__c.Developer__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>copado__Epic__c.copado_JIRA_key__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>copado__Epic__c.copado__Application__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13338,6 +13348,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>copado__User_Story_Task__c.copado_JIRA_key__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>copado__User_Story_Task__c.copado__Comments__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13354,6 +13369,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>copado__User_Story_Task__c.copado__Subject__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>copado__User_Story__c.Code_Review_Comments__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>copado__User_Story__c.Code_Review_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>copado__User_Story__c.Reviewer_Email__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

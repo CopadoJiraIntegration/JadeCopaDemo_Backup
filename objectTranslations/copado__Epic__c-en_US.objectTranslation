@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <label><!-- Developer --></label>
+        <name>Developer__c</name>
+        <relationshipLabel><!-- Epics --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- JIRA key --></label>
+        <name>copado_JIRA_key__c</name>
+    </fields>
+    <fields>
         <label><!-- Application --></label>
         <name>copado__Application__c</name>
         <relationshipLabel><!-- Epics --></relationshipLabel>

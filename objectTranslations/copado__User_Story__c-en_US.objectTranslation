@@ -65,6 +65,37 @@
         <name>copado__Work_Manager_Relations</name>
     </fieldSets>
     <fields>
+        <help><!-- Add details around Code review status --></help>
+        <label><!-- Code Review Comments --></label>
+        <name>Code_Review_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Denotes the Code Review Status --></help>
+        <label><!-- Code Review Status --></label>
+        <name>Code_Review_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change Requested</masterLabel>
+            <translation><!-- Change Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Email of Code Reviewer --></help>
+        <label><!-- Reviewer Email --></label>
+        <name>Reviewer_Email__c</name>
+    </fields>
+    <fields>
         <label><!-- Sequence --></label>
         <name>Sequence__c</name>
     </fields>
