@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <label><!-- Agent Satisfaction Score --></label>
+        <name>Agent_Satisfaction_Score__c</name>
+    </fields>
+    <fields>
         <label><!-- Amount --></label>
         <name>Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Owner Name --></label>
+        <name>Case_Owner_Name__c</name>
     </fields>
     <fields>
         <label><!-- Customer Satisfaction --></label>
         <name>Customer_Satisfaction__c</name>
     </fields>
     <fields>
-        <label><!-- First Response Time (In Days) --></label>
-        <name>First_Response_Time_In_Days__c</name>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+        <picklistValues>
+            <masterLabel>Billing</masterLabel>
+            <translation><!-- Billing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal</masterLabel>
+            <translation><!-- Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support</masterLabel>
+            <translation><!-- Support --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Checked if a case is closed directly after opening --></help>
+        <label><!-- First Call Closure --></label>
+        <name>First_Call_Closure__c</name>
     </fields>
     <fields>
         <label><!-- First Response Time (In Min) --></label>

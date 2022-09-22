@@ -181,15 +181,6 @@
         <type>Lookup</type>
     </fields>
     <label>ProductRecommendation</label>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>Product2Id__c</columns>
-        <columns>RecommendedProduct2Id__c</columns>
-        <columns>CURRENCY_ISO_CODE</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>PR-{0000}</displayFormat>
         <label>ProductRecommendation Number</label>

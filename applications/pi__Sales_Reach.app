@@ -11,7 +11,4 @@
     <tabs>standard-Contact</tabs>
     <tabs>pi__Lead_Deck</tabs>
     <tabs>pi__Sales_Edge_Reports</tabs>
-    <tabs>Favorites__c</tabs>
-    <tabs>Renewal_Scenario__c</tabs>
-    <tabs>Business_Profile__c</tabs>
 </CustomApplication>

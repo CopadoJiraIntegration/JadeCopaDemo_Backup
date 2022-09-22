@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionCalls>
+        <description>Refresh Record Page</description>
+        <name>Refresh_View</name>
+        <label>Refresh View</label>
+        <locationX>655</locationX>
+        <locationY>1273</locationY>
+        <actionName>c:refreshView</actionName>
+        <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+    </actionCalls>
     <apiVersion>55.0</apiVersion>
     <choices>
         <name>no</name>
@@ -44,8 +54,8 @@
     <decisions>
         <name>Check_User_input</name>
         <label>Check User input</label>
-        <locationX>727</locationX>
-        <locationY>273</locationY>
+        <locationX>689</locationX>
+        <locationY>352</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Input</name>
@@ -158,7 +168,7 @@
         <name>Add_Payment_Due_Case_Comment</name>
         <label>Add Payment Due Case Comment</label>
         <locationX>1039</locationX>
-        <locationY>613</locationY>
+        <locationY>712</locationY>
         <inputAssignments>
             <field>CommentBody</field>
             <value>
@@ -178,7 +188,10 @@
         <name>child_record_comment</name>
         <label>child record comment</label>
         <locationX>246</locationX>
-        <locationY>492</locationY>
+        <locationY>592</locationY>
+        <connector>
+            <targetReference>Update_a_case_record</targetReference>
+        </connector>
         <inputAssignments>
             <field>CommentBody</field>
             <value>
@@ -198,7 +211,7 @@
         <name>child_record_comment_0</name>
         <label>child record comment</label>
         <locationX>503</locationX>
-        <locationY>564</locationY>
+        <locationY>663</locationY>
         <connector>
             <targetReference>update_case</targetReference>
         </connector>
@@ -220,11 +233,8 @@
     <recordUpdates>
         <name>Update_a_case_record</name>
         <label>Update a case record</label>
-        <locationX>246</locationX>
-        <locationY>648</locationY>
-        <connector>
-            <targetReference>child_record_comment</targetReference>
-        </connector>
+        <locationX>247</locationX>
+        <locationY>793</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -251,7 +261,7 @@
         <name>update_case</name>
         <label>update case</label>
         <locationX>503</locationX>
-        <locationY>720</locationY>
+        <locationY>819</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -278,7 +288,7 @@
         <name>Update_Internal_Case_Comment</name>
         <label>Update Internal Case Comment</label>
         <locationX>741</locationX>
-        <locationY>655</locationY>
+        <locationY>754</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -299,7 +309,7 @@
         <name>Case_Update_2</name>
         <label>Case Update 2</label>
         <locationX>503</locationX>
-        <locationY>374</locationY>
+        <locationY>473</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -335,7 +345,7 @@
         <name>Discount</name>
         <label>Discount</label>
         <locationX>1040</locationX>
-        <locationY>446</locationY>
+        <locationY>545</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -354,7 +364,7 @@
         <name>screen2</name>
         <label>screen2</label>
         <locationX>247</locationX>
-        <locationY>271</locationY>
+        <locationY>370</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -382,7 +392,7 @@
         <name>technician_Req</name>
         <label>technician Req</label>
         <locationX>741</locationX>
-        <locationY>501</locationY>
+        <locationY>600</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -398,8 +408,8 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>609</locationX>
-        <locationY>37</locationY>
+        <locationX>568</locationX>
+        <locationY>50</locationY>
         <connector>
             <targetReference>Check_User_input</targetReference>
         </connector>

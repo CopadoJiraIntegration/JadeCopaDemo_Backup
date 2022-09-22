@@ -469,17 +469,6 @@
         </valueSet>
     </fields>
     <label>Custom Lookup Data</label>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>Product__c</columns>
-        <columns>Reactions__c</columns>
-        <columns>Warranty__c</columns>
-        <columns>Reaction__c</columns>
-        <columns>ListPrice__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>CL-{0000}</displayFormat>
         <label>Custom Lookup Data Name</label>

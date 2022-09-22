@@ -410,11 +410,6 @@
         <unique>false</unique>
     </fields>
     <label>Business Profile</label>
-    <listViews>
-        <fullName>All</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>BP-{0000000}</displayFormat>
         <label>Business Profile Name</label>

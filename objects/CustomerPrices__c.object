@@ -189,14 +189,6 @@
         <type>Lookup</type>
     </fields>
     <label>Customer Price</label>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>Product__c</columns>
-        <columns>ListPrice__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>CP-{0000}</displayFormat>
         <label>Customer Prices Name</label>

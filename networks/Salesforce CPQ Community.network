@@ -76,7 +76,6 @@
     <siteArchiveStatus>NotArchived</siteArchiveStatus>
     <status>Live</status>
     <tabs>
-        <customTab>Payment_Virtual_Terminal_Custom</customTab>
         <defaultTab>Chatter</defaultTab>
         <standardTab>Chatter</standardTab>
     </tabs>

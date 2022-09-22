@@ -261,6 +261,19 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Agent_Satisfaction_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Agent Satisfaction Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Amount__c</fullName>
         <externalId>false</externalId>
         <formula>Asset.Price</formula>
@@ -286,6 +299,18 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_Owner_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.FirstName + &quot; &quot; +  Owner:User.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Owner Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>ClosedDate</fullName>
@@ -338,51 +363,72 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Department</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Billing</fullName>
+                    <default>false</default>
+                    <label>Billing</label>
+                </value>
+                <value>
+                    <fullName>Marketing</fullName>
+                    <default>false</default>
+                    <label>Marketing</label>
+                </value>
+                <value>
+                    <fullName>Renewal</fullName>
+                    <default>false</default>
+                    <label>Renewal</label>
+                </value>
+                <value>
+                    <fullName>Support</fullName>
+                    <default>false</default>
+                    <label>Support</label>
+                </value>
+                <value>
+                    <fullName>Service</fullName>
+                    <default>false</default>
+                    <label>Service</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>First_Response_Time_In_Days__c</fullName>
+        <fullName>First_Call_Closure__c</fullName>
+        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <formula>TEXT(
-
-FLOOR(First_Response_Time__c - CreatedDate)
-
-) &amp; &quot; Day(s) &quot; &amp;
-
-TEXT(
-
-ROUND(MOD((First_Response_Time__c - CreatedDate)*24,24),0)
-
-) &amp;&quot; Hour(s) &quot; &amp;
-
-TEXT(
-
-ROUND(MOD((First_Response_Time__c - CreatedDate)*1440,60),0)
-
-) &amp;&quot; Minute(s) &quot;</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>First Response Time (In Days)</label>
-        <required>false</required>
+        <inlineHelpText>Checked if a case is closed directly after opening</inlineHelpText>
+        <label>First Call Closure</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>First_Response_Time_In_Min__c</fullName>
         <externalId>false</externalId>
-        <formula>(First_Response_Time__c - CreatedDate)*1440</formula>
+        <formula>TEXT(FLOOR((First_Response_Time__c - CreatedDate)*1440))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>First Response Time (In Min)</label>
-        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -645,6 +691,29 @@ ROUND(MOD((First_Response_Time__c - CreatedDate)*1440,60),0)
         <description>This is to create a dispute case with TKWW</description>
         <label>Dispute</label>
         <picklistValues>
+            <picklist>Department__c</picklist>
+            <values>
+                <fullName>Billing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Support</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Origin</picklist>
             <values>
                 <fullName>Chat</fullName>
@@ -767,6 +836,29 @@ ROUND(MOD((First_Response_Time__c - CreatedDate)*1440,60),0)
         <businessProcess>RMA</businessProcess>
         <label>RMA</label>
         <picklistValues>
+            <picklist>Department__c</picklist>
+            <values>
+                <fullName>Billing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Support</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Origin</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -848,6 +940,29 @@ ROUND(MOD((First_Response_Time__c - CreatedDate)*1440,60),0)
         <active>false</active>
         <businessProcess>TAC</businessProcess>
         <label>TAC</label>
+        <picklistValues>
+            <picklist>Department__c</picklist>
+            <values>
+                <fullName>Billing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Support</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Origin</picklist>
             <values>

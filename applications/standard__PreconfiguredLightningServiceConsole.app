@@ -48,22 +48,10 @@
     <tabs>standard-Macro</tabs>
     <tabs>standard-LightningQuickText</tabs>
     <tabs>standard-Survey</tabs>
-    <tabs>Favorites__c</tabs>
-    <tabs>Renewal_Scenario__c</tabs>
     <tabs>standard-OmniSupervisorLightning</tabs>
-    <tabs>Business_Profile__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>PreconfiguredLightningServiceConsole_UtilityBar</utilityBar>
     <workspaceConfig>
-        <mappings>
-            <tab>Business_Profile__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Favorites__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Renewal_Scenario__c</tab>
-        </mappings>
         <mappings>
             <tab>standard-Account</tab>
         </mappings>

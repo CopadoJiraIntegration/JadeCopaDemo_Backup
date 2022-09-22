@@ -304,11 +304,6 @@
         </valueSet>
     </fields>
     <label>Renewal Scenario</label>
-    <listViews>
-        <fullName>All</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <label>Renewal Scenario Name</label>
         <type>Text</type>

@@ -197,15 +197,6 @@
         <type>Lookup</type>
     </fields>
     <label>Favorites</label>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>Original_Quote__c</columns>
-        <columns>Global_Favorite__c</columns>
-        <columns>User__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <label>Favorites Name</label>
         <trackHistory>false</trackHistory>

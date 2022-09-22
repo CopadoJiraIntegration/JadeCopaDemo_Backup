@@ -156,7 +156,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>updateQuickActionName</name>
-                    <value>Case._LightningUpdateCase</value>
+                    <value>Case.Update_Case_Record</value>
                 </componentInstanceProperties>
                 <componentName>runtime_service_predictions:einsteinFieldRecommendations</componentName>
                 <identifier>runtime_service_predictions_einsteinFieldRecommendations</identifier>

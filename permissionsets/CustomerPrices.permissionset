@@ -22,8 +22,4 @@
         <object>CustomerPrices__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <tabSettings>
-        <tab>CustomerPrices__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
 </PermissionSet>

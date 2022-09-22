@@ -192,11 +192,6 @@
         <type>Lookup</type>
     </fields>
     <label>Leave Tracker</label>
-    <listViews>
-        <fullName>All</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>Leave-{00000}</displayFormat>
         <label>Leave Tracker Name</label>

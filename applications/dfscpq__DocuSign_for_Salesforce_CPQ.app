@@ -14,14 +14,4 @@
     <tabs>SBQQ__Quote__c</tabs>
     <tabs>SBQQ__QuoteTemplate__c</tabs>
     <tabs>SBQQ__TemplateContent__c</tabs>
-    <tabs>sbaa__Approval__c</tabs>
-    <tabs>CustomLookupData__c</tabs>
-    <tabs>CustomerPrices__c</tabs>
-    <tabs>Addresses__c</tabs>
-    <tabs>Leave_Tracker__c</tabs>
-    <tabs>ProductRecommendation__c</tabs>
-    <tabs>Rate_Card__c</tabs>
-    <tabs>Favorites__c</tabs>
-    <tabs>Renewal_Scenario__c</tabs>
-    <tabs>Business_Profile__c</tabs>
 </CustomApplication>

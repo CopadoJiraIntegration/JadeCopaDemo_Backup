@@ -353,20 +353,6 @@
         <unique>false</unique>
     </fields>
     <label>Address</label>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>Billing__c</columns>
-        <columns>City__c</columns>
-        <columns>Country__c</columns>
-        <columns>State__c</columns>
-        <columns>Shipping__c</columns>
-        <columns>Street__c</columns>
-        <columns>ZipCode__c</columns>
-        <columns>CREATED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>Address-{000000}</displayFormat>
         <label>Addresses Name</label>

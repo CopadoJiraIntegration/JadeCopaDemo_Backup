@@ -248,4 +248,8 @@
         <name>copado__Copado_Plan_Lightning</name>
         <type>CustomApplication</type>
     </appMenuItems>
+    <appMenuItems>
+        <name>SFDocumentor__SFDocumentor</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
 </AppMenu>

@@ -141,6 +141,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Customer Recommendation --></label>
+        <name>Customer_Recommendation__c</name>
+    </fields>
+    <fields>
         <label><!-- Delivery Type --></label>
         <name>DeliveryType__c</name>
         <picklistValues>

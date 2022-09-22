@@ -20,7 +20,4 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Document</tabs>
     <tabs>standard-Dashboard</tabs>
-    <tabs>Favorites__c</tabs>
-    <tabs>Renewal_Scenario__c</tabs>
-    <tabs>Business_Profile__c</tabs>
 </CustomApplication>

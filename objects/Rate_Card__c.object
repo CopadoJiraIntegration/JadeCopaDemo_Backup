@@ -1230,21 +1230,6 @@
         <type>Currency</type>
     </fields>
     <label>Rate Card</label>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>Product__c</columns>
-        <columns>Product_Code__c</columns>
-        <columns>Market__c</columns>
-        <columns>Product_Tier__c</columns>
-        <columns>Product_Type__c</columns>
-        <columns>Category__c</columns>
-        <columns>CURRENCY_ISO_CODE</columns>
-        <columns>Rate__c</columns>
-        <columns>Yearly_Rate__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>RC-{00000}</displayFormat>
         <label>Rate Card  Number</label>
