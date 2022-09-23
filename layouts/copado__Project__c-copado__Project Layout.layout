@@ -26,7 +26,7 @@
                 <field>copado__Index_Metadata__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>External_Id__c</field>
             </layoutItems>
         </layoutColumns>
