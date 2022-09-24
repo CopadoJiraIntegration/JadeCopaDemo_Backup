@@ -46,6 +46,22 @@
         <name>First_Call_Closure__c</name>
     </fields>
     <fields>
+        <label><!-- First Resolution time Categories --></label>
+        <name>First_Resolution_time_Categories__c</name>
+        <picklistValues>
+            <masterLabel>1-4 Hours</masterLabel>
+            <translation><!-- 1-4 Hours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less than 1 Hour</masterLabel>
+            <translation><!-- Less than 1 Hour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More than 4 Hours</masterLabel>
+            <translation><!-- More than 4 Hours --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- First Responded Time --></label>
         <name>First_Respond_Time__c</name>
     </fields>

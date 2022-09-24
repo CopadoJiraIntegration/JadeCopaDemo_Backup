@@ -62,6 +62,10 @@
                 <behavior>Edit</behavior>
                 <field>First_Respond_Time__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>First_Resolution_time_Categories__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

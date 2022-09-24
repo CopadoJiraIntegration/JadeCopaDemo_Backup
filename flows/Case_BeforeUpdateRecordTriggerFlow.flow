@@ -75,6 +75,11 @@
         <dataType>DateTime</dataType>
         <expression>{!$Flow.CurrentDateTime}</expression>
     </formulas>
+    <formulas>
+        <name>FirstResolutionTimeCategory</name>
+        <dataType>String</dataType>
+        <expression>IF(FLOOR(({!$Flow.CurrentDateTime} - {!$Record.CreatedDate})*1440) &lt; 60, &apos;3&apos;,  IF(FLOOR(({!$Flow.CurrentDateTime} - {!$Record.CreatedDate})*1440) &gt;= 60 &amp;&amp; FLOOR(({!$Flow.CurrentDateTime} - {!$Record.CreatedDate})*1440) &lt;= 240, &apos;2&apos;, IF(FLOOR(({!$Flow.CurrentDateTime} - {!$Record.CreatedDate})*1440) &gt; 240, &apos;1&apos;, NULL)))</expression>
+    </formulas>
     <interviewLabel>Case_BeforeUpdateRecordTriggerFlow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case_BeforeUpdateRecordTriggerFlow</label>
     <processMetadataValues>
@@ -122,6 +127,12 @@
         <label>update First response time on case</label>
         <locationX>314</locationX>
         <locationY>551</locationY>
+        <inputAssignments>
+            <field>First_Resolution_time_Categories__c</field>
+            <value>
+                <elementReference>FirstResolutionTimeCategory</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>First_Response_Time__c</field>
             <value>

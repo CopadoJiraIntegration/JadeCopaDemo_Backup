@@ -16762,6 +16762,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.First_Resolution_time_Categories__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.First_Respond_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
