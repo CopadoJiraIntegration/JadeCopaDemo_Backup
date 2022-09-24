@@ -213,6 +213,7 @@
         <label>End Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>true</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -297,6 +298,7 @@
         <label>Start Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>true</trackTrending>
         <type>Date</type>
     </fields>
     <fields>

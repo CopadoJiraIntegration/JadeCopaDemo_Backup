@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <description>Sends out email to the reviewers when the record is submitted for Code review</description>
+    <environments>Default</environments>
+    <interviewLabel>Submit for Code Review {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Submit for Code Review Email Alert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <description>Screen to submit for review</description>
+        <name>Submitting_for_Review</name>
+        <label>Submitting for Review</label>
+        <locationX>500</locationX>
+        <locationY>215</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Display_Submitting_Message</name>
+            <fieldText>&lt;p&gt;Submitting the User Story for Code review&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>373</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Submitting_for_Review</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>
