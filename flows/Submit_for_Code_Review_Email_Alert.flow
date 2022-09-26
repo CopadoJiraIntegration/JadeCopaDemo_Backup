@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>55.0</apiVersion>
+    <decisions>
+        <description>Go to approve only if User is having any Apex or development work included</description>
+        <name>Is_Story_having_Development_Work</name>
+        <label>Is Story having Development Work</label>
+        <locationX>489</locationX>
+        <locationY>333</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_had_Code</name>
+            <conditionLogic>(1 OR 2 OR 3) AND (4)</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_User_Story_Record.copado__Has_Apex_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_User_Story_Record.copado__Metadata_Types_in_Selection__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>ApexPage</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_User_Story_Record.copado__Metadata_Types_in_Selection__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>AuraDefinitionBundle</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_User_Story_Record.copado__Apex_Code_Coverage__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>75.0</numberValue>
+                </rightValue>
+            </conditions>
+            <label>Yes, had Code</label>
+        </rules>
+    </decisions>
     <description>Sends out email to the reviewers when the record is submitted for Code review</description>
     <environments>Default</environments>
     <interviewLabel>Submit for Code Review {!$Flow.CurrentDateTime}</interviewLabel>
@@ -24,12 +65,34 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
+    <recordLookups>
+        <description>Get the User Story records</description>
+        <name>Get_User_Story_Record</name>
+        <label>Get User Story Record</label>
+        <locationX>499</locationX>
+        <locationY>197</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Story_having_Development_Work</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>copado__User_Story__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <screens>
         <description>Screen to submit for review</description>
         <name>Submitting_for_Review</name>
         <label>Submitting for Review</label>
-        <locationX>500</locationX>
-        <locationY>215</locationY>
+        <locationX>240</locationX>
+        <locationY>334</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -45,8 +108,16 @@
         <locationX>373</locationX>
         <locationY>48</locationY>
         <connector>
-            <targetReference>Submitting_for_Review</targetReference>
+            <targetReference>Get_User_Story_Record</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
+    <variables>
+        <description>Stores the recordId for User Story</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
 </Flow>
