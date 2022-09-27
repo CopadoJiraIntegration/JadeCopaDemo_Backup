@@ -16838,11 +16838,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.First_Resolution_time_Categories__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Case.First_Respond_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16854,6 +16849,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.First_Response_Time__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.First_Response_time_Categories__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

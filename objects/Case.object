@@ -420,37 +420,6 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>First_Resolution_time_Categories__c</fullName>
-        <externalId>false</externalId>
-        <label>First Resolution time Categories</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>1</fullName>
-                    <default>false</default>
-                    <label>More than 4 Hours</label>
-                </value>
-                <value>
-                    <fullName>2</fullName>
-                    <default>false</default>
-                    <label>1-4 Hours</label>
-                </value>
-                <value>
-                    <fullName>3</fullName>
-                    <default>false</default>
-                    <label>Less than 1 Hour</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>First_Respond_Time__c</fullName>
         <externalId>false</externalId>
         <label>First Responded Time</label>
@@ -485,6 +454,37 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>First_Response_time_Categories__c</fullName>
+        <externalId>false</externalId>
+        <label>First Response time Categories</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>More than 4 Hours</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>1-4 Hours</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>Less than 1 Hour</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>IsClosedOnCreate</fullName>
@@ -758,7 +758,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>First_Resolution_time_Categories__c</picklist>
+            <picklist>First_Response_time_Categories__c</picklist>
             <values>
                 <fullName>1</fullName>
                 <default>false</default>
@@ -918,7 +918,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>First_Resolution_time_Categories__c</picklist>
+            <picklist>First_Response_time_Categories__c</picklist>
             <values>
                 <fullName>1</fullName>
                 <default>false</default>
@@ -1038,7 +1038,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>First_Resolution_time_Categories__c</picklist>
+            <picklist>First_Response_time_Categories__c</picklist>
             <values>
                 <fullName>1</fullName>
                 <default>false</default>
