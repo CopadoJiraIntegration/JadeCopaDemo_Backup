@@ -9,6 +9,34 @@
         <value>Review Approvers</value>
     </caseValues>
     <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Review Status --></label>
+        <name>Review_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change Requested</masterLabel>
+            <translation><!-- Change Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Progress</masterLabel>
+            <translation><!-- In-Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <help><!-- The Person who will be reviewing the code --></help>
         <label><!-- Reviewer --></label>
         <name>Reviewer__c</name>
@@ -21,4 +49,8 @@
         <relationshipLabel><!-- Review Approvers --></relationshipLabel>
     </fields>
     <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Only reviewer can change the status of the record --></errorMessage>
+        <name>Only_reviewer_can_update_the_status</name>
+    </validationRules>
 </CustomObjectTranslation>

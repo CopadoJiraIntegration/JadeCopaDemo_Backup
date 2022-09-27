@@ -128,11 +128,14 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>User_Story_Record_Page2</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -6204,6 +6207,21 @@
         <label>Work Manager Relations</label>
     </fieldSets>
     <fields>
+        <fullName>Approval_status__c</fullName>
+        <externalId>false</externalId>
+        <label>Approval status</label>
+        <summaryFilterItems>
+            <field>Review_Approver__c.Review_Status__c</field>
+            <operation>equals</operation>
+            <value>Approved</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Review_Approver__c.User_Story__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Code_Review_Comments__c</fullName>
         <description>Mostly used when the Code Review status is Changes Requested or Rejected</description>
         <externalId>false</externalId>
@@ -6213,55 +6231,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Code_Review_Status__c</fullName>
-        <description>This field is used for Code Review approval functionality for Copado</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Denotes the Code Review Status</inlineHelpText>
-        <label>Code Review Status</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Not Started</fullName>
-                    <default>true</default>
-                    <label>Not Started</label>
-                </value>
-                <value>
-                    <fullName>Approved</fullName>
-                    <default>false</default>
-                    <label>Approved</label>
-                </value>
-                <value>
-                    <fullName>Change Requested</fullName>
-                    <default>false</default>
-                    <label>Change Requested</label>
-                </value>
-                <value>
-                    <fullName>Rejected</fullName>
-                    <default>false</default>
-                    <label>Rejected</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Reviewer_Email__c</fullName>
-        <description>Stores the Email of Reviewer which is used for submitting the story for Approval</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Email of Code Reviewer</inlineHelpText>
-        <label>Reviewer Email</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Email</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Sequence__c</fullName>
@@ -7968,25 +7937,6 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <active>true</active>
         <label>Bug</label>
         <picklistValues>
-            <picklist>Code_Review_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Change Requested</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Started</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>copado__Acceptance_Criteria_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
@@ -8454,25 +8404,6 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <active>true</active>
         <label>Investigation</label>
         <picklistValues>
-            <picklist>Code_Review_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Change Requested</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Started</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>copado__Acceptance_Criteria_Status__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
@@ -8939,25 +8870,6 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <fullName>copado__User_Story</fullName>
         <active>true</active>
         <label>User Story</label>
-        <picklistValues>
-            <picklist>Code_Review_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Change Requested</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Started</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>copado__Acceptance_Criteria_Status__c</picklist>
             <values>
@@ -9437,25 +9349,6 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <fullName>copado__Utility</fullName>
         <active>true</active>
         <label>Utility</label>
-        <picklistValues>
-            <picklist>Code_Review_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Change Requested</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Started</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>copado__Acceptance_Criteria_Status__c</picklist>
             <values>
@@ -9946,6 +9839,25 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <searchResultsAdditionalFields>copado__Project__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Cannot_Deploy_If_Not_Approved</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+  OR(
+   copado__Has_Apex_Code__c,  
+    INCLUDES(
+     copado__Metadata_Types_in_Selection__c , 
+     &apos;ApexPage&apos;
+   )
+  ),
+ Approval_status__c   &lt;  2,
+  OR(
+    copado__Promote_and_Deploy__c ,
+    copado__Promote_Change__c 
+  ) 
+)</errorConditionFormula>
+        <errorMessage>Cannot be promoted unless the Code  review is approved by atleast 2 users</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>copado__Cancellation_reason_required</fullName>
         <active>false</active>

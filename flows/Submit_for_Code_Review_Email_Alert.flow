@@ -1,12 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Reviewer_Email</name>
+        <label>Send Reviewer Email</label>
+        <locationX>501</locationX>
+        <locationY>1086</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Code_Review_submitted_message</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>BodyTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>emailAddresses</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>Loop_Approvers.Reviewer__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>SubjectTemplate</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
     <apiVersion>55.0</apiVersion>
+    <assignments>
+        <name>Add_Email_to_Collection</name>
+        <label>Add Email to Collection</label>
+        <locationX>668</locationX>
+        <locationY>969</locationY>
+        <assignmentItems>
+            <assignToReference>emailAddresses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Approvers.Reviewer__r.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Reviewer_Email</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Procceed only if approvers are present</description>
+        <name>Is_Approvers_Present</name>
+        <label>Is Approvers Present</label>
+        <locationX>491</locationX>
+        <locationY>703</locationY>
+        <defaultConnector>
+            <targetReference>No_Approvers_assigned</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Approvers_Present</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Approvers</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Approvers</targetReference>
+            </connector>
+            <label>Yes, Approvers Present</label>
+        </rules>
+    </decisions>
     <decisions>
         <description>Go to approve only if User is having any Apex or development work included</description>
         <name>Is_Story_having_Development_Work</name>
         <label>Is Story having Development Work</label>
         <locationX>489</locationX>
         <locationY>333</locationY>
+        <defaultConnector>
+            <targetReference>No_Code_Committed_Screen</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes_had_Code</name>
@@ -39,6 +126,9 @@
                     <numberValue>75.0</numberValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>Get_Approvers</targetReference>
+            </connector>
             <label>Yes, had Code</label>
         </rules>
     </decisions>
@@ -46,6 +136,18 @@
     <environments>Default</environments>
     <interviewLabel>Submit for Code Review {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Submit for Code Review Email Alert</label>
+    <loops>
+        <description>Loop through List of Approvers</description>
+        <name>Loop_Approvers</name>
+        <label>Loop Approvers</label>
+        <locationX>500</locationX>
+        <locationY>896</locationY>
+        <collectionReference>Get_Approvers</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Email_to_Collection</targetReference>
+        </nextValueConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -65,6 +167,28 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
+    <recordLookups>
+        <description>Get the Approver records for a User Story</description>
+        <name>Get_Approvers</name>
+        <label>Get Approvers</label>
+        <locationX>499</locationX>
+        <locationY>567</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Approvers_Present</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>User_Story__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Review_Approver__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordLookups>
         <description>Get the User Story records</description>
         <name>Get_User_Story_Record</name>
@@ -88,17 +212,49 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
-        <description>Screen to submit for review</description>
-        <name>Submitting_for_Review</name>
-        <label>Submitting for Review</label>
+        <name>Code_Review_submitted_message</name>
+        <label>Code Review submitted message</label>
+        <locationX>504</locationX>
+        <locationY>1218</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>CodeReviewSubmittedText</name>
+            <fieldText>&lt;p&gt;Successfully submitted the User Story for Code Review.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>No_Approvers_assigned</name>
+        <label>No Approvers assigned</label>
+        <locationX>206</locationX>
+        <locationY>698</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>No_Approvers</name>
+            <fieldText>&lt;p&gt;There are no Approvers assigned for this story. &lt;/p&gt;&lt;p&gt;Please add the Review Approvers for this story from the related tab and try again.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <description>Message to be shown when the User is trying to Submit the story for Code review, without any Code committed</description>
+        <name>No_Code_Committed_Screen</name>
+        <label>No Code Committed Screen</label>
         <locationX>240</locationX>
         <locationY>334</locationY>
-        <allowBack>true</allowBack>
+        <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+        <allowPause>false</allowPause>
         <fields>
             <name>Display_Submitting_Message</name>
-            <fieldText>&lt;p&gt;Submitting the User Story for Code review&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;This User Story does not have any Apex Code committed.&lt;/p&gt;&lt;p&gt;Story can only be submitted for Code review if it has any Code committed&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -111,7 +267,24 @@
             <targetReference>Get_User_Story_Record</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
+    <textTemplates>
+        <name>BodyTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You have been marked as a review on the story {!Loop_Approvers.User_Story__r.Name}.&lt;/p&gt;&lt;p&gt;Please review the code from {!Loop_Approvers.User_Story__r.copado__View_in_Git__c}.&lt;/p&gt;&lt;p&gt;Request to review the PR within 24 hours of receiving email&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>SubjectTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>You have been marked reviewer for {!Loop_Approvers.User_Story__r.Name}</text>
+    </textTemplates>
+    <variables>
+        <name>emailAddresses</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <description>Stores the recordId for User Story</description>
         <name>recordId</name>

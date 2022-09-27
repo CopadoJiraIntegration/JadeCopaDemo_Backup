@@ -155,6 +155,55 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Comments__c</fullName>
+        <description>Comments when the change is requested or rejected PR</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Review_Status__c</fullName>
+        <description>Status of the review for particular Reviewer</description>
+        <externalId>false</externalId>
+        <label>Review Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>In-Progress</fullName>
+                    <default>false</default>
+                    <label>In-Progress</label>
+                </value>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Change Requested</fullName>
+                    <default>false</default>
+                    <label>Change Requested</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Reviewer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>The Person who will be reviewing the code</description>
@@ -190,5 +239,15 @@
     <pluralLabel>Review Approvers</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Only_reviewer_can_update_the_status</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+ ISCHANGED( Review_Status__c ),
+  Reviewer__c   &lt;&gt;  $User.Id 
+)</errorConditionFormula>
+        <errorDisplayField>Review_Status__c</errorDisplayField>
+        <errorMessage>Only reviewer can change the status of the record</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

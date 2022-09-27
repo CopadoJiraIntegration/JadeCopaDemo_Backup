@@ -8,6 +8,6 @@
     </values>
     <values>
         <field>copado__Text_Field__c</field>
-        <value xsi:type="xsd:string">Completed</value>
+        <value xsi:type="xsd:string">Completed,Approved</value>
     </values>
 </CustomMetadata>
