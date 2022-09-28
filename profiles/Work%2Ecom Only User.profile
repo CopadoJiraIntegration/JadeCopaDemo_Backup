@@ -18755,6 +18755,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>OpportunityLineItem.Customer_Recommendation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.Description</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -30416,6 +30421,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Allow_Global_Filter__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Customer_Satisfaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
