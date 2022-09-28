@@ -241,7 +241,7 @@
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>Only_reviewer_can_update_the_status</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
  ISCHANGED( Review_Status__c ),
   Reviewer__c   &lt;&gt;  $User.Id 
