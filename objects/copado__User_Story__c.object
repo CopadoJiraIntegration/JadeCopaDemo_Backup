@@ -9850,13 +9850,13 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
      &apos;ApexPage&apos;
    )
   ),
- Approval_status__c   &lt;  2,
+ Approval_status__c   &lt;  1,
   OR(
     copado__Promote_and_Deploy__c ,
     copado__Promote_Change__c 
   ) 
 )</errorConditionFormula>
-        <errorMessage>Cannot be promoted unless the Code  review is approved by atleast 2 users</errorMessage>
+        <errorMessage>Cannot be promoted unless the Code  review is approved by atleast 1 users</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>copado__Cancellation_reason_required</fullName>

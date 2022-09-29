@@ -619,6 +619,9 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Review_Status__c</fields>
+        <fields>Reviewer__c</fields>
+        <fields>Comments__c</fields>
         <relatedList>Review_Approver__c.User_Story__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

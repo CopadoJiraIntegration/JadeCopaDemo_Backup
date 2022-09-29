@@ -414,21 +414,6 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
-            <actionName>copado__Add_Apex_Tests</actionName>
-            <actionType>CustomButton</actionType>
-            <sortOrder>19</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>copado__User_Story__c.Submit_for_Code_Review</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>20</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Delete</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>18</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Edit</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>0</sortOrder>
@@ -517,6 +502,21 @@
             <actionName>Clone</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>17</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Delete</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>18</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>copado__Add_Apex_Tests</actionName>
+            <actionType>CustomButton</actionType>
+            <sortOrder>19</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>copado__User_Story__c.Submit_for_Code_Review</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>20</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
@@ -765,6 +765,9 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Review_Status__c</fields>
+        <fields>Reviewer__c</fields>
+        <fields>Comments__c</fields>
         <relatedList>Review_Approver__c.User_Story__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

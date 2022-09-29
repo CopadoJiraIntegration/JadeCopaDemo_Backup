@@ -913,7 +913,7 @@
         <name>copado__Utility</name>
     </recordTypes>
     <validationRules>
-        <errorMessage><!-- Cannot be promoted unless the Code  review is approved by atleast 2 users --></errorMessage>
+        <errorMessage><!-- Cannot be promoted unless the Code  review is approved by atleast 1 users --></errorMessage>
         <name>Cannot_Deploy_If_Not_Approved</name>
     </validationRules>
     <validationRules>
