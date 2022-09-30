@@ -79,6 +79,18 @@
         <name>ReadytobeSynced__c</name>
     </fields>
     <fields>
+        <label><!-- Renewal Status --></label>
+        <name>Renewal_Status__c</name>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewed</masterLabel>
+            <translation><!-- Renewed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <help>更新見積の生成時、同じ商品の複数の納入商品の数量を 1 つの品目に統合するオプション。</help>
         <label><!-- Combine Asset Quantities --></label>
         <name>SBQQ__AssetQuantitiesCombined__c</name>

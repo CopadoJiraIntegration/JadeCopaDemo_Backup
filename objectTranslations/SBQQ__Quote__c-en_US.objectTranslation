@@ -41,6 +41,11 @@
         <name>Approval_Time_Taken__c</name>
     </fields>
     <fields>
+        <label><!-- Approved By --></label>
+        <name>Approved_By__c</name>
+        <relationshipLabel><!-- Quotes (Approved By) --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Business Profile --></label>
         <name>Business_Profile__c</name>
         <relationshipLabel><!-- Quotes --></relationshipLabel>
@@ -763,7 +768,7 @@
         <help><!-- Sales rep responsible for this quote if different from the user who owns the quote record. --></help>
         <label><!-- Sales Rep --></label>
         <name>SBQQ__SalesRep__c</name>
-        <relationshipLabel><!-- Quotes --></relationshipLabel>
+        <relationshipLabel><!-- Quotes (Sales Rep) --></relationshipLabel>
     </fields>
     <fields>
         <help><!-- City on the Ship To address for this quote. --></help>

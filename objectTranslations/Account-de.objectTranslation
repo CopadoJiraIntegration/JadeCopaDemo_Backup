@@ -79,6 +79,18 @@
         <name>ReadytobeSynced__c</name>
     </fields>
     <fields>
+        <label><!-- Renewal Status --></label>
+        <name>Renewal_Status__c</name>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewed</masterLabel>
+            <translation><!-- Renewed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <help>Option, mit der beim Erstellen des Verlängerungsangebots die Mengen für mehrere Vermögenswerte für dasselbe Produkt in einem Belegposten zusammengefasst werden können.</help>
         <label><!-- Combine Asset Quantities --></label>
         <name>SBQQ__AssetQuantitiesCombined__c</name>

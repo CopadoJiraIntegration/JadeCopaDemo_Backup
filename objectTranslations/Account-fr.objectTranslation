@@ -79,6 +79,18 @@
         <name>ReadytobeSynced__c</name>
     </fields>
     <fields>
+        <label><!-- Renewal Status --></label>
+        <name>Renewal_Status__c</name>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewed</masterLabel>
+            <translation><!-- Renewed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <help>Option qui permet de combiner les quantités de plusieurs ressources d&apos;un même produit sur une seule ligne lors de la génération du devis de renouvellement.</help>
         <label><!-- Combine Asset Quantities --></label>
         <name>SBQQ__AssetQuantitiesCombined__c</name>

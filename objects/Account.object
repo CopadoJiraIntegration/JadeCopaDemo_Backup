@@ -499,6 +499,29 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Renewal_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Renewal Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Renewed</fullName>
+                    <default>false</default>
+                    <label>Renewed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>SBQQ__AssetQuantitiesCombined__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
@@ -1302,6 +1325,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Renewal_Status__c</picklist>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>SBQQ__CoTerminationEvent__c</picklist>
             <values>
                 <fullName>Add-on</fullName>
@@ -1758,6 +1792,17 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Renewal_Status__c</picklist>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2226,6 +2271,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Renewal_Status__c</picklist>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>SBQQ__CoTerminationEvent__c</picklist>
             <values>
                 <fullName>Add-on</fullName>
@@ -2690,6 +2746,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Renewal_Status__c</picklist>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>SBQQ__CoTerminationEvent__c</picklist>
             <values>
                 <fullName>Add-on</fullName>
@@ -3150,6 +3217,17 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Renewal_Status__c</picklist>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
