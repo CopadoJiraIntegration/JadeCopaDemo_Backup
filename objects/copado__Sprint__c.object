@@ -175,7 +175,7 @@
         <externalId>true</externalId>
         <label>External Id</label>
         <length>18</length>
-        <required>true</required>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>true</unique>

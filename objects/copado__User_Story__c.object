@@ -7901,11 +7901,6 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <columns>copado__Release__c</columns>
         <columns>copado__Sprint__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>copado__User_Story__c.copado__Bug,copado__User_Story__c.copado__User_Story</value>
-        </filters>
         <label>All</label>
     </listViews>
     <listViews>
