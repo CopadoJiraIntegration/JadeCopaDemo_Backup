@@ -1204,7 +1204,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Approved_By__c</field>
+            <field>is_Approved__c</field>
             <table>SBQQ__Quote__c</table>
         </columns>
         <masterLabel>Quotes</masterLabel>

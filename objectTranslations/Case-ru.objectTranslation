@@ -54,6 +54,10 @@
         <name>First_Response_Time_In_Min__c</name>
     </fields>
     <fields>
+        <label><!-- First Response Time (Min) --></label>
+        <name>First_Response_Time_Min__c</name>
+    </fields>
+    <fields>
         <help><!-- This field displays when was the first response added by the agent on case --></help>
         <label><!-- First Response Time --></label>
         <name>First_Response_Time__c</name>

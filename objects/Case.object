@@ -447,6 +447,20 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>First_Response_Time_Min__c</fullName>
+        <externalId>false</externalId>
+        <formula>FLOOR((First_Response_Time__c - CreatedDate)*1440)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Response Time (Min)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>First_Response_Time__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>This field displays when was the first response added by the agent on case</inlineHelpText>

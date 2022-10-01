@@ -45,11 +45,6 @@
         <name>Approval_Time_Taken__c</name>
     </fields>
     <fields>
-        <label><!-- Approved By --></label>
-        <name>Approved_By__c</name>
-        <relationshipLabel><!-- Quotes (Approved By) --></relationshipLabel>
-    </fields>
-    <fields>
         <label><!-- Business Profile --></label>
         <name>Business_Profile__c</name>
         <relationshipLabel><!-- Quotes --></relationshipLabel>
@@ -772,7 +767,7 @@
         <help>この見積を担当する営業担当 (見積レコードを所有するユーザと異なる場合)。</help>
         <label><!-- Sales Rep --></label>
         <name>SBQQ__SalesRep__c</name>
-        <relationshipLabel><!-- Quotes (Sales Rep) --></relationshipLabel>
+        <relationshipLabel><!-- Quotes --></relationshipLabel>
     </fields>
     <fields>
         <help>この見積の納入先住所の市区群。</help>
@@ -918,6 +913,10 @@
     <fields>
         <label><!-- Save Payment Method --></label>
         <name>dfscpq__SavePaymentMethod__c</name>
+    </fields>
+    <fields>
+        <label><!-- is Approved --></label>
+        <name>is_Approved__c</name>
     </fields>
     <nameFieldLabel>見積番号</nameFieldLabel>
     <validationRules>

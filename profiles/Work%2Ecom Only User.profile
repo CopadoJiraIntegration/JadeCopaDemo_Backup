@@ -15324,6 +15324,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.IsActive__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.IsExcludedFromRealign</field>
         <readable>false</readable>
@@ -16761,6 +16766,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.First_Response_Time_In_Min__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.First_Response_Time_Min__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -24490,11 +24500,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SBQQ__Quote__c.Approved_By__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>SBQQ__Quote__c.Business_Profile__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -24967,6 +24972,11 @@
         <editable>false</editable>
         <field>SBQQ__Quote__c.dfscpq__SavePaymentMethod__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SBQQ__Quote__c.is_Approved__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

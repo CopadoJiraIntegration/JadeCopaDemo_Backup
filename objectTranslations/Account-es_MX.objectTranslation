@@ -42,6 +42,10 @@
         <name>Has_Prime_Support__c</name>
     </fields>
     <fields>
+        <label><!-- Active --></label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
         <label><!-- Last Sync Date --></label>
         <name>LastSyncDate__c</name>
     </fields>
