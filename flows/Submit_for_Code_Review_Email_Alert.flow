@@ -3,13 +3,10 @@
     <actionCalls>
         <name>Send_Reviewer_Email</name>
         <label>Send Reviewer Email</label>
-        <locationX>501</locationX>
-        <locationY>1086</locationY>
+        <locationX>390</locationX>
+        <locationY>1071</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
-        <connector>
-            <targetReference>Code_Review_submitted_message</targetReference>
-        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailBody</name>
@@ -56,7 +53,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Send_Reviewer_Email</targetReference>
+            <targetReference>Code_Review_submitted_message</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -219,6 +216,9 @@
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Select_Reviewer</targetReference>
+        </connector>
         <fields>
             <name>CodeReviewSubmittedText</name>
             <fieldText>&lt;p&gt;Successfully submitted the User Story for Code Review.&lt;/p&gt;</fieldText>
@@ -260,6 +260,55 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
+    <screens>
+        <name>Select_Reviewer</name>
+        <label>Select Reviewer</label>
+        <locationX>501</locationX>
+        <locationY>1374</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>UserList</name>
+            <extensionName>c:multiSelectLookup</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>fieldApiNames</name>
+                <value>
+                    <stringValue>Id, Name</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>filterFieldApiName</name>
+                <value>
+                    <stringValue>Name</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>labelName</name>
+                <value>
+                    <stringValue>Select Reviewer</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>iconName</name>
+                <value>
+                    <stringValue>standard:user</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>objectApiName</name>
+                <value>
+                    <stringValue>User</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <start>
         <locationX>373</locationX>
         <locationY>48</locationY>
@@ -267,7 +316,7 @@
             <targetReference>Get_User_Story_Record</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <textTemplates>
         <name>BodyTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
