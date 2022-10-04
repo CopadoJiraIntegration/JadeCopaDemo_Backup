@@ -69,6 +69,10 @@
                 <behavior>Readonly</behavior>
                 <field>Approval_status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Developer_Comments__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -517,6 +521,11 @@
             <actionName>copado__User_Story__c.Submit_for_Code_Review</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>20</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>copado__User_Story__c.Approve_Reject_Pull_Request</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>21</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <relatedLists>

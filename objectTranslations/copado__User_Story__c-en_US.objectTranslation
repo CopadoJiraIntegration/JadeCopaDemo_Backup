@@ -74,6 +74,10 @@
         <name>Code_Review_Comments__c</name>
     </fields>
     <fields>
+        <label><!-- Developer Comments --></label>
+        <name>Developer_Comments__c</name>
+    </fields>
+    <fields>
         <label><!-- Sequence --></label>
         <name>Sequence__c</name>
     </fields>

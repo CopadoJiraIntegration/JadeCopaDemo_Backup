@@ -13544,6 +13544,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>copado__User_Story__c.Developer_Comments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>copado__User_Story__c.Sequence__c</field>
         <readable>true</readable>
     </fieldPermissions>

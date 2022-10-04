@@ -7,6 +7,9 @@
         <locationY>1071</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Select_Reviewer</targetReference>
+        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailBody</name>
@@ -53,7 +56,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Code_Review_submitted_message</targetReference>
+            <targetReference>Send_Reviewer_Email</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -209,25 +212,6 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
-        <name>Code_Review_submitted_message</name>
-        <label>Code Review submitted message</label>
-        <locationX>504</locationX>
-        <locationY>1218</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <connector>
-            <targetReference>Select_Reviewer</targetReference>
-        </connector>
-        <fields>
-            <name>CodeReviewSubmittedText</name>
-            <fieldText>&lt;p&gt;Successfully submitted the User Story for Code Review.&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
         <name>No_Approvers_assigned</name>
         <label>No Approvers assigned</label>
         <locationX>206</locationX>
@@ -269,7 +253,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
-            <name>UserList</name>
+            <name>ReviewerList</name>
             <extensionName>c:multiSelectLookup</extensionName>
             <fieldType>ComponentInstance</fieldType>
             <inputParameters>
@@ -302,6 +286,12 @@
                     <stringValue>User</stringValue>
                 </value>
             </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>Get_User_Story_Record.Id</elementReference>
+                </value>
+            </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -316,11 +306,11 @@
             <targetReference>Get_User_Story_Record</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <name>BodyTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You have been marked as a review on the story {!Loop_Approvers.User_Story__r.Name}.&lt;/p&gt;&lt;p&gt;Please review the code from {!Loop_Approvers.User_Story__r.copado__View_in_Git__c}.&lt;/p&gt;&lt;p&gt;Request to review the PR within 24 hours of receiving email&lt;/p&gt;</text>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You have been marked as a reviewer on the story {!Loop_Approvers.User_Story__r.Name}.&lt;/p&gt;&lt;p&gt;Please review the code from {!Loop_Approvers.User_Story__r.copado__View_in_Git__c}.&lt;/p&gt;&lt;p&gt;Request to review the PR within 24 hours of receiving email&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards,&lt;/p&gt;&lt;p&gt;Copado Team&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>SubjectTemplate</name>

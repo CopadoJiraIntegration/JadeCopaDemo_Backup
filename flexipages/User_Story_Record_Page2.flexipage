@@ -218,6 +218,9 @@
                         <valueListItems>
                             <value>copado__User_Story__c.Submit_for_Code_Review</value>
                         </valueListItems>
+                        <valueListItems>
+                            <value>copado__User_Story__c.Approve_Reject_Pull_Request</value>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>

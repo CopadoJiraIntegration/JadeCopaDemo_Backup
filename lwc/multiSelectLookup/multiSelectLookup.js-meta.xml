@@ -7,6 +7,7 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId" label="User Story Id" type="String" role="inputOnly"/>
             <property name="labelName" label="Header Name" type="String" role="inputOnly"/>
             <property name="objectApiName" label="Object API Name" type="String" role="inputOnly"/>
             <property name="fieldApiNames" label="Field API Names" type="String" role="inputOnly"/>

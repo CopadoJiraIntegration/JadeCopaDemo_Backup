@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Status_change_Email</name>
+        <label>Send Status change Email</label>
+        <locationX>505</locationX>
+        <locationY>502</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>StatusChangeTemplateBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>emailList</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>StatusChangeSubject</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <assignments>
+        <name>Add_Email_to_the_list</name>
+        <label>Add Email to the list</label>
+        <locationX>496</locationX>
+        <locationY>375</locationY>
+        <assignmentItems>
+            <assignToReference>emailList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Reviewer__r.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Status_change_Email</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>Review Changes Email Alert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Review Changes Email Alert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>373</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Add_Email_to_the_list</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Review_Status__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Review_Approver__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>StatusChangeSubject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>{!$Record.Name} Changed your PR review to {!$Record.Review_Status__c} for {!$Record.User_Story__r.copadoccmint__JIRA_key__c}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>StatusChangeTemplateBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>Hi {!$Record.User_Story__r.copado__Developer__r.Name},
+
+
+
+{!$Record.Name} has {!$Record.Review_Status__c} your Pull Request for - {!$Record.User_Story__r.copado__View_in_Git__c} feature branch with the following comments:
+
+{!$Record.Comments__c}
+
+
+
+Thanks and Regards,
+
+Copado Team.</text>
+    </textTemplates>
+    <variables>
+        <name>emailList</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,4 +1,5 @@
 <template>
+    <template if:false={isSuccess}>
     <div class="slds-form-element">
      <label class='slds-m-around_x-small'><small>{labelName}</small></label>
      <div class="slds-form-element__control">
@@ -42,17 +43,45 @@
                                    </div>
                                    <footer class="slds-popover__footer slds-popover__footer_form">
                                        <lightning-button label="Cancel" title="Cancel" 
-                                               onclick={handleCancelClick} class="slds-m-left_x-small"></lightning-button>
+                                               onclick={handleCancelClick} class="slds-m-left_xx-small"></lightning-button>
                                        <lightning-button variant="success" label="Select" title="Done"
-                                               onclick={handleSelectClick} class="slds-m-left_x-small"></lightning-button>
-                                        <lightning-button variant="success" label="Done" title="Done"
-                                               onclick={handleDoneClick} class="slds-m-left_x-small"></lightning-button>                                  
+                                               onclick={handleSelectClick} class="slds-m-left_xx-small"></lightning-button>                                  
                                    </footer>
                                </section>                                               
                            </template>
                        </template>
+                       <div>
+                        <lightning-input id="devInput"
+                                value={devCommentInput}
+                                label="Dev comments"
+                                role="textbox"
+                                placeholder="Details about the changes/updated made in the code"
+                                onchange={handleDevCommentsChange}
+                                type="text">
+                            </lightning-input>
+                        <lightning-textarea id="devComments"
+                            value={devComments}
+                            label="Previous Dev comments"
+                            role="textbox"
+                            type="text"
+                            readonly>
+                        </lightning-textarea >
+                        <lightning-textarea  id="ApproverComments"
+                            value={approverComments}
+                            label="Previous Reviewer comments"
+                            role="textbox"
+                            type="text"
+                            readonly>
+                        </lightning-textarea >
+                        </div>
+                       <lightning-button variant="success" label="Done" title="Done" disabled={isDisabled}
+                                               onclick={handleDoneClick} class="slds-m-left_x-small"></lightning-button>
                   </div>
              </div>
          </div>
      </div>
+    </template>
+    <template if:true={isSuccess}>
+        <p><lightning-formatted-text value="Submitted for Code Review successfully" ></lightning-formatted-text></p>
+    </template>
    </template>

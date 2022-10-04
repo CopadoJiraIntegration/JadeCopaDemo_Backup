@@ -12,6 +12,7 @@ export default class multiSelectLookup extends LightningElement {
     @track globalSelectedItems = []; //holds all the selected checkbox items
     //start: following parameters to be passed from calling component
     @api labelName;
+    @api recordId;  // User Story Id
     @api objectApiName; // = 'Contact';
     @api fieldApiNames; // = 'Id,Name';
     @api filterFieldApiName;    // = 'Name';
@@ -27,7 +28,18 @@ export default class multiSelectLookup extends LightningElement {
     searchInput ='';    //captures the text to be searched from user input
     isDialogDisplay = false; //based on this flag dialog box will be displayed with checkbox items
     isDisplayMessage = false; //to show 'No records found' message
+    isSuccess = false;
+    isDisabled = true;
+    errorMessage = '';
+    devCommentInput = '';
+    devComments = '';
+    approverComments = '';
     
+
+    handleDevCommentsChange(event) {
+        this.devCommentInput = event.detail.value;
+    }
+
     //This method is called when user enters search input. It displays the data from database.
     onchangeSearchInput(event){
 
@@ -37,15 +49,18 @@ export default class multiSelectLookup extends LightningElement {
             retrieveRecords({objectName: this.objectApiName,
                             fieldAPINames: this.fieldApiNames,
                             filterFieldAPIName: this.filterFieldApiName,
-                            strInput: this.searchInput
+                            strInput: this.searchInput,
+                            userStoryId: this.recordId
                             })
             .then(result=>{ 
                 this.items = []; //initialize the array before assigning values coming from apex
                 this.value = [];
                 this.previousSelectedItems = [];
-
-                if(result.length>0){
-                    result.map(resElement=>{
+                console.log('-result--',result);
+                this.devComments = result.developerComments;
+                this.approverComments = result.reviewerComments;
+                if(result.sObjectQueryResults.length>0){
+                    result.sObjectQueryResults.map(resElement=>{
                         //prepare items array using spread operator which will be used as checkbox options
                         this.items = [...this.items,{value:resElement.recordId, 
                                                     label:resElement.recordName}];
@@ -96,7 +111,8 @@ export default class multiSelectLookup extends LightningElement {
             if(arr != undefined){
                 this.selectedItems.push(arr);
             }  
-        });     
+        });   
+        this.isDisabled = false;  
     }
 
     //this method removes the pill item
@@ -142,13 +158,26 @@ export default class multiSelectLookup extends LightningElement {
 
     handleDoneClick(event) {
 
+        console.log('-Inside the handleDoneClick--');
         if (this.globalSelectedItems.length > 0) {
-            createReviewRecords({listOfSelectRecords: this.globalSelectedItems})
+            createReviewRecords({
+                listOfSelectRecords: this.globalSelectedItems,
+                userStoryId : this.recordId,
+                devInputComments : this.devCommentInput,
+                devComments : this.devComments
+            })
             .then(result=>{ 
-                console.log('--Records saved--');
+                console.log('--result--',result);
+                if (result == '') {
+                    this.isSuccess = true;
+                }
+                else {
+                    this.errorMessage = result;
+                }
+                console.log('--Records saved--',result);
             })
             .catch(error=>{
-                this.error = error;
+                this.errorMessage = error;
                 this.items = undefined;
                 this.isDialogDisplay = false;
             })

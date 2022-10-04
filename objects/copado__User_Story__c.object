@@ -6233,6 +6233,16 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Developer_Comments__c</fullName>
+        <description>Developer Comments while commiting to Git</description>
+        <externalId>false</externalId>
+        <label>Developer Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Sequence__c</fullName>
         <externalId>false</externalId>
         <label>Sequence</label>
@@ -7889,17 +7899,31 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
     </fields>
     <label>User Story</label>
     <listViews>
+        <fullName>Jade_Copado_Project</fullName>
+        <columns>NAME</columns>
+        <columns>copadoccmint__JIRA_key__c</columns>
+        <columns>copado__User_Story_Title__c</columns>
+        <columns>copado__Project__c</columns>
+        <columns>copado__Sprint__c</columns>
+        <columns>copado__Environment__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>copado__Project__c</field>
+            <operation>equals</operation>
+            <value>Jade Copado Project</value>
+        </filters>
+        <label>Jade Copado Project</label>
+    </listViews>
+    <listViews>
         <fullName>copado__All</fullName>
         <columns>NAME</columns>
-        <columns>Sequence__c</columns>
+        <columns>copadoccmint__JIRA_key__c</columns>
         <columns>copado__User_Story_Title__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>copado__Environment__c</columns>
         <columns>copado__Status__c</columns>
-        <columns>copado__Promote_Change__c</columns>
         <columns>copado__Project__c</columns>
-        <columns>copado__Release__c</columns>
         <columns>copado__Sprint__c</columns>
+        <columns>copado__Environment__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
