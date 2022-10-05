@@ -3,13 +3,10 @@
     <actionCalls>
         <name>Send_Reviewer_Email</name>
         <label>Send Reviewer Email</label>
-        <locationX>390</locationX>
-        <locationY>1071</locationY>
+        <locationX>489</locationX>
+        <locationY>1115</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
-        <connector>
-            <targetReference>Select_Reviewer</targetReference>
-        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailBody</name>
@@ -21,12 +18,6 @@
             <name>emailAddressesArray</name>
             <value>
                 <elementReference>emailAddresses</elementReference>
-            </value>
-        </inputParameters>
-        <inputParameters>
-            <name>emailAddresses</name>
-            <value>
-                <elementReference>Loop_Approvers.Reviewer__r.Email</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -127,7 +118,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Approvers</targetReference>
+                <targetReference>Select_Reviewer</targetReference>
             </connector>
             <label>Yes, had Code</label>
         </rules>
@@ -247,11 +238,14 @@
     <screens>
         <name>Select_Reviewer</name>
         <label>Select Reviewer</label>
-        <locationX>501</locationX>
-        <locationY>1374</locationY>
+        <locationX>628</locationX>
+        <locationY>453</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Get_Approvers</targetReference>
+        </connector>
         <fields>
             <name>ReviewerList</name>
             <extensionName>c:multiSelectLookup</extensionName>

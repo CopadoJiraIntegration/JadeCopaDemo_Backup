@@ -84,7 +84,7 @@
             <field>Approval_status__c</field>
             <operator>GreaterThanOrEqualTo</operator>
             <value>
-                <numberValue>2.0</numberValue>
+                <numberValue>1.0</numberValue>
             </value>
         </filters>
         <filters>

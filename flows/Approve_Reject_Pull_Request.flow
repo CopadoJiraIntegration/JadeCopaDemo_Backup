@@ -32,7 +32,7 @@
     <formulas>
         <name>ReviewerComments</name>
         <dataType>String</dataType>
-        <expression>{!Reviewer_Comments} &amp; BR() &amp; TEXT({!$Flow.CurrentDateTime}) + BR() &amp; BR()+ {!Get_Reviewer.Comments__c}</expression>
+        <expression>{!Reviewer_Comments} &amp; BR() + {!Get_Reviewer.Name} + &apos; &apos; + TEXT({!$Flow.CurrentDateTime}) + BR() + BR()+ {!Get_Reviewer.Comments__c} + BR() + BR()</expression>
     </formulas>
     <interviewLabel>Approve/Reject Pull Request {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Approve/Reject Pull Request</label>
@@ -198,7 +198,7 @@
             <targetReference>Get_User_Story</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>PreviousValue</name>
         <dataType>String</dataType>

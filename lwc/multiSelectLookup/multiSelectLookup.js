@@ -34,6 +34,7 @@ export default class multiSelectLookup extends LightningElement {
     devCommentInput = '';
     devComments = '';
     approverComments = '';
+    isCompleted = false;
     
 
     handleDevCommentsChange(event) {

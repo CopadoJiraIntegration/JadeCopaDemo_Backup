@@ -87,7 +87,7 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <name>StatusChangeSubject</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
@@ -95,19 +95,14 @@
     </textTemplates>
     <textTemplates>
         <name>StatusChangeTemplateBody</name>
-        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
         <text>Hi {!$Record.User_Story__r.copado__Developer__r.Name},
 
-
-
-{!$Record.Name} has {!$Record.Review_Status__c} your Pull Request for - {!$Record.User_Story__r.copado__View_in_Git__c} feature branch with the following comments:
+{!$Record.Name} has {!$Record.Review_Status__c} your Pull Request for - {!$Record.User_Story__r.copado__View_in_Git__c} feature branch with the following comments -
 
 {!$Record.Comments__c}
 
-
-
 Thanks and Regards,
-
 Copado Team.</text>
     </textTemplates>
     <variables>
