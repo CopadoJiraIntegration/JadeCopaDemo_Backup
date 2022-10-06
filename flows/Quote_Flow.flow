@@ -36,7 +36,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Updated_with_Accepted_Rejected</name>
-            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.SBQQ__Status__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -58,6 +58,13 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>RecordCreatedDate</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>TodaysDate</elementReference>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>QuoteLifeCycle1</targetReference>
             </connector>
@@ -65,7 +72,7 @@
         </rules>
         <rules>
             <name>Created_with_Accepted_Rejected</name>
-            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditionLogic>(1 OR 2) AND (3 OR (4 AND 5))</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.SBQQ__Status__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -83,6 +90,20 @@
             <conditions>
                 <leftValueReference>$Record.Id</leftValueReference>
                 <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>RecordCreatedDate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>TodaysDate</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__Status__c</leftValueReference>
+                <operator>IsChanged</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
@@ -105,6 +126,11 @@
         <dataType>Number</dataType>
         <expression>TODAY() -  DATEVALUE({!$Record.CreatedDate})</expression>
         <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>RecordCreatedDate</name>
+        <dataType>Date</dataType>
+        <expression>DATEVALUE({!$Record.CreatedDate})</expression>
     </formulas>
     <formulas>
         <name>TodaysDate</name>

@@ -430,6 +430,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>QuoteDataLoadBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>QuoteExtController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -4547,6 +4551,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SFDocumentor__userPermissionWrapperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Sample</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Sample2</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
