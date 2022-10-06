@@ -176,11 +176,6 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Pending</fullName>
-                    <default>false</default>
-                    <label>Pending</label>
-                </value>
-                <value>
                     <fullName>In-Progress</fullName>
                     <default>false</default>
                     <label>In-Progress</label>
@@ -199,6 +194,11 @@
                     <fullName>Change Requested</fullName>
                     <default>false</default>
                     <label>Change Requested</label>
+                </value>
+                <value>
+                    <fullName>Re-Review</fullName>
+                    <default>false</default>
+                    <label>Re-Review</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

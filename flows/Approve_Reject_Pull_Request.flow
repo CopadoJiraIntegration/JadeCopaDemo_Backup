@@ -30,9 +30,9 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
-        <name>ReviewerComments</name>
+        <name>reviewComments</name>
         <dataType>String</dataType>
-        <expression>{!Reviewer_Comments} &amp; BR() + {!Get_Reviewer.Name} + &apos; &apos; + TEXT({!$Flow.CurrentDateTime}) + BR() + BR()+ {!Get_Reviewer.Comments__c} + BR() + BR()</expression>
+        <expression>{!Reviewer_Comments} &amp; BR() + {!Get_Reviewer.Name} + &apos; &apos; + TEXT({!$Flow.CurrentDateTime}) + BR() + BR()+ {!Get_Reviewer.Comments__c}</expression>
     </formulas>
     <interviewLabel>Approve/Reject Pull Request {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Approve/Reject Pull Request</label>
@@ -116,7 +116,7 @@
         <inputAssignments>
             <field>Comments__c</field>
             <value>
-                <elementReference>ReviewerComments</elementReference>
+                <elementReference>reviewComments</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -172,18 +172,12 @@
         </fields>
         <fields>
             <name>Reviewer_Comments</name>
-            <defaultValue>
-                <stringValue>{!Get_Reviewer.Comments__c}</stringValue>
-            </defaultValue>
             <fieldText>Reviewer Comments</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>
         </fields>
         <fields>
             <name>Dev_Comments</name>
-            <defaultValue>
-                <stringValue>{!Get_User_Story.Developer_Comments__c}</stringValue>
-            </defaultValue>
             <fieldText>Dev Comments</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>
@@ -198,7 +192,7 @@
             <targetReference>Get_User_Story</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>PreviousValue</name>
         <dataType>String</dataType>

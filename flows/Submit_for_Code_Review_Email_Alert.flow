@@ -3,10 +3,13 @@
     <actionCalls>
         <name>Send_Reviewer_Email</name>
         <label>Send Reviewer Email</label>
-        <locationX>489</locationX>
-        <locationY>1115</locationY>
+        <locationX>693</locationX>
+        <locationY>1064</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Remove_Email_from_list</targetReference>
+        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailBody</name>
@@ -37,8 +40,8 @@
     <assignments>
         <name>Add_Email_to_Collection</name>
         <label>Add Email to Collection</label>
-        <locationX>668</locationX>
-        <locationY>969</locationY>
+        <locationX>691</locationX>
+        <locationY>898</locationY>
         <assignmentItems>
             <assignToReference>emailAddresses</assignToReference>
             <operator>Add</operator>
@@ -48,6 +51,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Send_Reviewer_Email</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Remove_Email_from_list</name>
+        <label>Remove Email from list</label>
+        <locationX>500</locationX>
+        <locationY>1064</locationY>
+        <assignmentItems>
+            <assignToReference>emailAddresses</assignToReference>
+            <operator>RemoveAll</operator>
+            <value>
+                <elementReference>emailAddresses</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Approvers</targetReference>
         </connector>
     </assignments>
     <decisions>

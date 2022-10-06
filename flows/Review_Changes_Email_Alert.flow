@@ -22,6 +22,9 @@
         </inputParameters>
         <inputParameters>
             <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
         </inputParameters>
         <inputParameters>
             <name>emailSubject</name>
@@ -95,15 +98,8 @@
     </textTemplates>
     <textTemplates>
         <name>StatusChangeTemplateBody</name>
-        <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>Hi {!$Record.User_Story__r.copado__Developer__r.Name},
-
-{!$Record.Name} has {!$Record.Review_Status__c} your Pull Request for - {!$Record.User_Story__r.copado__View_in_Git__c} feature branch with the following comments -
-
-{!$Record.Comments__c}
-
-Thanks and Regards,
-Copado Team.</text>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi {!$Record.User_Story__r.copado__Developer__r.Name},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!$Record.Name} has {!$Record.Review_Status__c} your Pull Request for - {!$Record.User_Story__r.Name} User Story. Please review the User Story in Copado&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards,&lt;/p&gt;&lt;p&gt;Copado Team.&lt;/p&gt;</text>
     </textTemplates>
     <variables>
         <name>emailList</name>

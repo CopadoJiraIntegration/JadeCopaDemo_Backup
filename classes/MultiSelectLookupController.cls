@@ -51,15 +51,15 @@ public with sharing class MultiSelectLookupController {
             SELECT
                 Id,
                 Name,
-                Developer_Comments__c,
+                //Developer_Comments__c,
                 (
                     SELECT
                         Id,
-                        Name,
-                        Comments__c
+                        Name//,
+                        //Comments__c
                     FROM
                         Review_Approvers__r
-                    ORDER BY Comments__c DESC
+                    //ORDER BY Comments__c DESC
                 )
             FROM
                 copado__User_Story__c
@@ -70,13 +70,13 @@ public with sharing class MultiSelectLookupController {
         String developerCommments = '';
         for (copado__User_Story__c userStoryItr : userStories) {
             for (Review_Approver__c reviewItr : userStoryItr.Review_Approvers__r) {
-                if (!String.isEmpty(reviewItr.Comments__c)) {
-                    reviewerComments = reviewerComments + reviewItr.Comments__c;
-                }
+                //if (!String.isEmpty(reviewItr.Comments__c)) {
+                //    reviewerComments = reviewerComments + reviewItr.Comments__c;
+                //}
             }
-            if (!String.isEmpty(userStoryItr.Developer_Comments__c)) {
-                developerCommments = developerCommments + userStoryItr.Developer_Comments__c;
-            }
+            //if (!String.isEmpty(userStoryItr.Developer_Comments__c)) {
+                //developerCommments = developerCommments + userStoryItr.Developer_Comments__c;
+            //}
         }
         ResultWrapper resultWrapperInstance = new ResultWrapper();
         resultWrapperInstance.sObjectQueryResults = lstReturnResult;
@@ -108,7 +108,7 @@ public with sharing class MultiSelectLookupController {
                 List<String> reviewerRecord = reviewerDetails.split(',');
                 reviewApprovers.add(new Review_Approver__c(
                     Name = reviewerRecord[0].split('=')[1],
-                    Review_Status__c = 'Pending',
+                    Review_Status__c = 'In-Progress',
                     Reviewer__c = reviewerRecord[1].split('=')[1].removeEnd('}'),
                     User_Story__c = userStoryId
                 ));
@@ -120,7 +120,7 @@ public with sharing class MultiSelectLookupController {
                 devCommentsToUpdate = devInputComments + '\n' + System.now() + '\n\n';
                 devCommentsToUpdate = devCommentsToUpdate + devComments;
                 System.debug('--devCommentsToUpdate--'+devCommentsToUpdate);
-                update new copado__User_Story__c(Id = userStoryId, Developer_Comments__c = devCommentsToUpdate);
+                //update new copado__User_Story__c(Id = userStoryId, Developer_Comments__c = devCommentsToUpdate);
             }
         } catch(Exception e) {
             responseMessage = e.getMessage();

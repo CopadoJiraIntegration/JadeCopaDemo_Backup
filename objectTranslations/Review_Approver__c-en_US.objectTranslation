@@ -28,8 +28,8 @@
             <translation><!-- In-Progress --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Pending</masterLabel>
-            <translation><!-- Pending --></translation>
+            <masterLabel>Re-Review</masterLabel>
+            <translation><!-- Re-Review --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Rejected</masterLabel>
