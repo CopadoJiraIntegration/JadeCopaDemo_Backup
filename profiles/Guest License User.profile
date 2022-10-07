@@ -230,6 +230,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CaseDataLoadBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CaseTrigger_TestClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -435,6 +439,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuoteExtController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuoteLineItDataLoadBatch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -4583,6 +4591,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SiteRegisterControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TemperatureConverter</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TemperatureConverterTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

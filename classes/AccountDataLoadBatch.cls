@@ -75,6 +75,7 @@ public class AccountDataLoadBatch implements Database.Batchable<SObject>,Databas
      * @Output: void
     */
     public void finish(Database.BatchableContext bc){
-        Database.executeBatch(new OppDataLoadBatch(lstAccIds)); 
+        Database.executeBatch(new CaseDataLoadBatch(lstAccIds));
+        Database.executeBatch(new OppDataLoadBatch(lstAccIds));
     }
 }

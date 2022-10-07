@@ -135,7 +135,7 @@ public class Sample {
         list<SBQQ__Quote__c> lstQuoteToInsert = new list<SBQQ__Quote__c>();
         list<id> lstQtcIds = new list<id>();
         
-        for(Opportunity oppty: [select id, AccountId, OwnerId, StageName from Opportunity where id in: lstOppIds]){
+        for(Opportunity oppty: [select id, AccountId, OwnerId, StageName, Pricebook2Id from Opportunity where id in: lstOppIds]){
             SBQQ__Quote__c qt = new SBQQ__Quote__c();
             qt.SBQQ__Account__c = oppty.AccountId;
             qt.SBQQ__SalesRep__c = oppty.OwnerId;
@@ -146,6 +146,7 @@ public class Sample {
             }
             qt.SBQQ__Opportunity2__c = Oppty.Id;
             qt.SBQQ__Primary__c = true;
+            qt.SBQQ__PriceBook__c = Oppty.Pricebook2Id;
             
             lstQuoteToInsert.add(qt);
         }
@@ -165,11 +166,48 @@ public class Sample {
             }
         }
         
-       
+       /*
+        4. Create QuoteLineItems related to Primary Quotes created above
+       */
+        map<id, list<OpportunityLineItem>> mapOppIdToLstOppLnIt = new map<id, list<OpportunityLineItem>>();
+        map<id, id> mapQuoteIdToOppId = new map<id, id>();
+        map<id, id> mapProdIdToPriceBookEntryId = new map<id, id>();
+        list<id> lstProductIds = new list<id>();
+        list<SBQQ__QuoteLine__c> lstQuoLnItToInsert = new list<SBQQ__QuoteLine__c>();
+        
+        for(SBQQ__Quote__c qt: [select id,SBQQ__Opportunity2__c from SBQQ__Quote__c where id in: lstQtcIds]){
+            mapQuoteIdToOppId.put(qt.id, qt.SBQQ__Opportunity2__c);
+        }
+        
+        for(Opportunity opp: [select id, (select id, Product2Id, Product2.SBQQ__ChargeType__c, Quantity from OpportunityLineItems) from Opportunity where id in: mapQuoteIdToOppId.values()]){
+            mapOppIdToLstOppLnIt.put(opp.id, opp.OpportunityLineItems);
+            for(OpportunityLineItem oppLnIt: opp.OpportunityLineItems){
+                lstProductIds.add(oppLnIt.Product2Id);
+            }
+        }
+        
+        for(PricebookEntry pe: [select id,Product2Id from PricebookEntry where Pricebook2.Name = 'Standard Price Book' and Product2Id in: lstProductIds]){
+            mapProdIdToPriceBookEntryId.put(pe.Product2Id, pe.Id);
+        }
+
+        for(id quoteId: mapQuoteIdToOppId.keySet()){
+            for(OpportunityLineItem oppLnIt: mapOppIdToLstOppLnIt.get(mapQuoteIdToOppId.get(quoteId))){
+                SBQQ__QuoteLine__c QtLnIt = new SBQQ__QuoteLine__c();
+                QtLnIt.SBQQ__Quote__c = quoteId;
+                QtLnIt.SBQQ__Product__c = oppLnIt.Product2Id;
+                QtLnIt.SBQQ__Quantity__c = oppLnIt.Quantity;
+                QtLnIt.SBQQ__ChargeType__c = oppLnIt.Product2.SBQQ__ChargeType__c;
+                QtLnIt.SBQQ__PricebookEntryId__c = mapProdIdToPriceBookEntryId.get(oppLnIt.Product2Id);
+                lstQuoLnItToInsert.add(QtLnIt);
+            }
+        }
+
+     	insert lstQuoLnItToInsert;
+        
         
         /*
         5. Create Cases related to Accounts
-        */
+        
 
         list<Case> lstCaseToInsert = new list<Case>();
         list<string> lstCaseStatuses = new list<string>{'On Hold', 'Escalated', 'Closed', 'New'};
@@ -198,30 +236,45 @@ public class Sample {
         if(!lstCaseToInsert.isEmpty()){
             insert lstCaseToInsert;
         }
-		
+		*/
         
         /*
         6. Create Orders related to Opportunity, Accounts
         */
-        list<Opportunity> lstOppsToUpdate = new list<Opportunity>();
+        list<Opportunity> lstOppsToUpdate_1= new list<Opportunity>();
+        list<Opportunity> lstOppsToUpdate_2= new list<Opportunity>();
         map<id, id> mapOppIdToQtId = new map<id, id>();
+        
         for(SBQQ__Quote__c qt: [select id ,SBQQ__Opportunity2__c, SBQQ__Opportunity2__r.StageName from SBQQ__Quote__c where SBQQ__Opportunity2__r.StageName = 'Closed Won' and id in: lstQtcIds]){
             mapOppIdToQtId.put(qt.SBQQ__Opportunity2__c, qt.id);
         }
+        //[select count() from Opportunity where SBQQ__PrimaryQuote__c != null and id in: lstOppIds]
+            
+        system.debug('primary quote opportunity count: '+ [select count() from Opportunity where SBQQ__PrimaryQuote__c != null and id in: lstOppIds]);
         
         // update the closed won opportunities with ordered as true to generates the Orders
         for(Opportunity opp: [select id, StageName, SBQQ__Ordered__c, SBQQ__PrimaryQuote__c from Opportunity where id in: mapOppIdToQtId.keySet()]){
             opp.SBQQ__PrimaryQuote__c = mapOppIdToQtId.get(opp.id);
             opp.SBQQ__Ordered__c = true;
-            lstOppsToUpdate.add(opp);
+            lstOppsToUpdate_1.add(opp);
         }
         
-        update lstOppsToUpdate;
+        update lstOppsToUpdate_1;
+        ///*
+        /*system.debug('primary quote opportunity count: '+ [select count() from Opportunity where SBQQ__PrimaryQuote__c != null and id in: lstOppIds]);
+        for(Opportunity opp: [select id, StageName, SBQQ__Ordered__c, SBQQ__PrimaryQuote__c from Opportunity where id in: mapOppIdToQtId.keySet()]){
+            //opp.SBQQ__PrimaryQuote__c = mapOppIdToQtId.get(opp.id);
+            opp.SBQQ__Ordered__c = true;
+            lstOppsToUpdate_2.add(opp);
+        }
+        
+        //update lstOppsToUpdate_2;
+        */
         
         
         /*
         6. Create Contracts
-        */
+        
         list<id> lstOrderIds = new list<id>();
         list<string> lstOrderTypes = new List<string>{'New', 'Amendment', 'Renewal'};
         list<Order> lstOrdersToUdpate = new list<Order>();
@@ -243,7 +296,8 @@ public class Sample {
             lstOppsToUpdateToGenerateContracts.add(opp);
         }
         
-        update lstOppsToUpdateToGenerateContracts;
+        update lstOppsToUpdateToGenerateContracts;*/
+
 		
     }
 }
