@@ -374,6 +374,11 @@
             <field>Developer_Comments__c</field>
             <table>copado__User_Story__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>view_in_git_Dev__c</field>
+            <table>copado__User_Story__c</table>
+        </columns>
         <masterLabel>User Stories</masterLabel>
     </sections>
     <sections>

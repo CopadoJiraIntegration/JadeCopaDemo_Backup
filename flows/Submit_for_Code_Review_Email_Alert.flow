@@ -144,6 +144,11 @@
     </decisions>
     <description>Sends out email to the reviewers when the record is submitted for Code review</description>
     <environments>Default</environments>
+    <formulas>
+        <name>Urllink</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE({!Loop_Approvers.User_Story__r.copado__View_in_Git__c}, &apos;/&lt;(?:\&quot;[^\&quot;]*\&quot;[\&apos;\&quot;]*|\&apos;[^\&apos;]*\&apos;[\&apos;\&quot;]*|[^\&apos;\&quot;&gt;])+&gt;/g;&apos;, &apos;&apos;)</expression>
+    </formulas>
     <interviewLabel>Submit for Code Review {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Submit for Code Review Email Alert</label>
     <loops>
@@ -323,7 +328,7 @@
     <textTemplates>
         <name>BodyTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You have been marked as a reviewer on the story {!Loop_Approvers.User_Story__r.Name}.&lt;/p&gt;&lt;p&gt;Please review the code from {!Loop_Approvers.User_Story__r.copado__View_in_Git__c}.&lt;/p&gt;&lt;p&gt;Request to review the PR within 24 hours of receiving email&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards,&lt;/p&gt;&lt;p&gt;Copado Team&lt;/p&gt;</text>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You have been marked as a reviewer on the story {!Loop_Approvers.User_Story__r.Name}.&lt;/p&gt;&lt;p&gt;Please review the code from {!Loop_Approvers.User_Story__r.view_in_git_Dev__c}.&lt;/p&gt;&lt;p&gt;Request to review the PR within 24 hours of receiving email&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards,&lt;/p&gt;&lt;p&gt;Copado Team&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>SubjectTemplate</name>

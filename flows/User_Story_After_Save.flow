@@ -109,7 +109,7 @@
     <textTemplates>
         <name>BodyTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your PR for {!$Record.copado__View_in_Git__c} feature branch has been approved and is ready to be deployed ahead.&lt;/p&gt;&lt;p&gt;Please see the User Story {!$Record.Name} record for further details&lt;/p&gt;</text>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your PR for {!$Record.Name} User Story has been approved and is ready to be deployed ahead.&lt;/p&gt;&lt;p&gt;Please see the User Story {!$Record.Name} record for further details&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards,&lt;/p&gt;&lt;p&gt;Copado Team&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>SubjectTemplate</name>

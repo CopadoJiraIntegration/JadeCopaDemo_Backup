@@ -900,6 +900,10 @@
         <label><!-- JIRA key --></label>
         <name>copadoccmint__JIRA_key__c</name>
     </fields>
+    <fields>
+        <label><!-- view in git Dev --></label>
+        <name>view_in_git_Dev__c</name>
+    </fields>
     <recordTypes>
         <label><!-- Bug --></label>
         <name>copado__Bug</name>

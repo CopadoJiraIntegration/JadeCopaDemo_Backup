@@ -178,6 +178,9 @@
         </fields>
         <fields>
             <name>Dev_Comments</name>
+            <defaultValue>
+                <stringValue>{!Get_User_Story.Developer_Comments__c}</stringValue>
+            </defaultValue>
             <fieldText>Dev Comments</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>

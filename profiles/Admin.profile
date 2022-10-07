@@ -13938,6 +13938,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>copado__User_Story__c.view_in_git_Dev__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>copadoccmint__Callout_Log__c.copadoccmint__Project__c</field>
         <readable>true</readable>

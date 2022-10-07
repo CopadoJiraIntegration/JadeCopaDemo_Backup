@@ -43,7 +43,7 @@
             <assignToReference>emailList</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>$Record.Reviewer__r.Email</elementReference>
+                <elementReference>$Record.User_Story__r.copado__Developer__r.Email</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -90,7 +90,7 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <textTemplates>
         <name>StatusChangeSubject</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
@@ -99,7 +99,7 @@
     <textTemplates>
         <name>StatusChangeTemplateBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Hi {!$Record.User_Story__r.copado__Developer__r.Name},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!$Record.Name} has {!$Record.Review_Status__c} your Pull Request for - {!$Record.User_Story__r.Name} User Story. Please review the User Story in Copado&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards,&lt;/p&gt;&lt;p&gt;Copado Team.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Hi {!$Record.User_Story__r.copado__Developer__r.Name},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!$Record.Name} has {!$Record.Review_Status__c} for - {!$Record.User_Story__r.Name} User Story. Please review the User Story in Copado&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards,&lt;/p&gt;&lt;p&gt;Copado Team.&lt;/p&gt;</text>
     </textTemplates>
     <variables>
         <name>emailList</name>

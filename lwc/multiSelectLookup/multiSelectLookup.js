@@ -2,8 +2,9 @@
  *   Author: Santanu Boral
 */
 import { LightningElement, api, track } from 'lwc';
-import retrieveRecords from '@salesforce/apex/MultiSelectLookupController.retrieveRecords';
 import createReviewRecords from '@salesforce/apex/MultiSelectLookupController.createReviewRecords';
+import retrieveRecords from '@salesforce/apex/MultiSelectLookupController.retrieveRecords';
+import initialRecords from '@salesforce/apex/MultiSelectLookupController.initialRecords';
 import SystemModstamp from '@salesforce/schema/Account.SystemModstamp';
 
 let i=0;
@@ -24,6 +25,7 @@ export default class multiSelectLookup extends LightningElement {
     //since values on checkbox deselection is difficult to track, so workaround to store previous values.
     //clicking on Done button, first previousSelectedItems items to be deleted and then selectedItems to be added into globalSelectedItems
     @track previousSelectedItems = []; 
+    @track existingItems = [];
     @track value = []; //this holds checkbox values (Ids) which will be shown as selected
     searchInput ='';    //captures the text to be searched from user input
     isDialogDisplay = false; //based on this flag dialog box will be displayed with checkbox items
@@ -36,6 +38,36 @@ export default class multiSelectLookup extends LightningElement {
     approverComments = '';
     isCompleted = false;
     
+
+    connectedCallback() {
+        initialRecords()
+        initialRecords({
+            userstoryId: this.recordId
+        })
+        .then(result=>{ 
+        console.log('-result--',result);
+        this.devComments = result.developerComments;
+        this.approverComments = result.reviewerComments;
+        if(result.sObjectQueryResults.length>0){
+            result.sObjectQueryResults.map(resElement=>{
+                this.existingItems.push({value:resElement.recordId, 
+                    label:resElement.recordName});
+            });
+            this.isDialogDisplay = true; //display dialog
+            this.isDisplayMessage = false;
+        }
+        else{
+            //display No records found message
+            this.isDialogDisplay = false;
+            this.isDisplayMessage = true;                    
+        }
+        })
+        .catch(error=>{
+            this.error = error;
+            this.items = undefined;
+            this.isDialogDisplay = false;
+        })
+    }
 
     handleDevCommentsChange(event) {
         this.devCommentInput = event.detail.value;

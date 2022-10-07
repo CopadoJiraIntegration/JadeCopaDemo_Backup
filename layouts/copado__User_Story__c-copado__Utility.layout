@@ -72,6 +72,10 @@
                 <behavior>Edit</behavior>
                 <field>Developer_Comments__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>view_in_git_Dev__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

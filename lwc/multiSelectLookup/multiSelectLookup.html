@@ -14,6 +14,14 @@
                         </lightning-input>
                     </div>
                     <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon slds-input-has-icon_left-right" role="none">
+                        <template for:each={existingItems} for:item="existingItem">
+                            <span key={existingItem.value}>
+                                <lightning-pill label={existingItem.label} name={existingItem.value} data-item={existingItem.value}>
+                                <lightning-icon icon-name={iconName} variant="circle"
+                                    alternative-text={existingItem.label}></lightning-icon>
+                                </lightning-pill>
+                            </span>
+                        </template>
                         <template for:each={globalSelectedItems} for:item="selectedItem">
                             <span key={selectedItem.value}>
                                 <lightning-pill label={selectedItem.label} name={selectedItem.value} data-item={selectedItem.value}

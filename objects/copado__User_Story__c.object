@@ -7898,6 +7898,46 @@ IMAGE(&quot;/img/samples/color_yellow.gif&quot;, &quot;white&quot;, 15,
         <type>Text</type>
         <unique>true</unique>
     </fields>
+    <fields>
+        <fullName>view_in_git_Dev__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+AND(
+NOT(ISNULL(copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c )), copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c != &apos;&apos;
+),
+IF(
+AND(NOT(ISPICKVAL(copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Git_Provider__c,&apos;&apos;)),NOT(ISPICKVAL(copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Git_Provider__c, &apos;Others&apos;))),
+copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c + &apos;feature/&apos; + Name ,
+IF(
+CONTAINS(copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c,&apos;[BRANCH_NAME]&apos;),
+SUBSTITUTE(copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c,&apos;[BRANCH_NAME]&apos;,&apos;feature/&apos; + Name),
+copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c + &apos;feature/&apos; + Name
+)
+),
+IF(
+AND(
+NOT(ISNULL(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c )), copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c != &apos;&apos;
+),
+IF(
+AND(NOT(ISPICKVAL(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Git_Provider__c,&apos;&apos;)),NOT(ISPICKVAL(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Git_Provider__c, &apos;Others&apos;))),
+copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c + &apos;feature/&apos; + Name ,
+IF(
+CONTAINS(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c,&apos;[BRANCH_NAME]&apos;),
+SUBSTITUTE(copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c,&apos;[BRANCH_NAME]&apos;,&apos;feature/&apos; + Name),
+copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Repository__r.copado__Branch_Base_URL__c + &apos;feature/&apos; + Name
+)
+),
+&apos;&apos;
+)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>view in git Dev</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>User Story</label>
     <listViews>
         <fullName>Jade_Copado_Project</fullName>
