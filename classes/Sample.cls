@@ -154,9 +154,9 @@ public class Sample {
         //Insert Quotes
         if(!lstQuoteToInsert.isEmpty()){
             //insert lstQuoteToInsert;
-            SBQQ.TriggerControl.disable();
+            //SBQQ.TriggerControl.disable();
             Database.SaveResult[] srList = Database.insert(lstQuoteToInsert, false);
-			SBQQ.TriggerControl.enable();		
+			//SBQQ.TriggerControl.enable();		
             for(Database.SaveResult sr : srList) {
                 if(sr.isSuccess()){
                     // Operation was successful, so get the ID of the record that was processed
@@ -255,21 +255,22 @@ public class Sample {
         // update the closed won opportunities with ordered as true to generates the Orders
         for(Opportunity opp: [select id, StageName, SBQQ__Ordered__c, SBQQ__PrimaryQuote__c from Opportunity where id in: mapOppIdToQtId.keySet()]){
             opp.SBQQ__PrimaryQuote__c = mapOppIdToQtId.get(opp.id);
-            opp.SBQQ__Ordered__c = true;
+            //opp.SBQQ__Ordered__c = true;
             lstOppsToUpdate_1.add(opp);
+            
         }
         
         update lstOppsToUpdate_1;
         ///*
-        /*system.debug('primary quote opportunity count: '+ [select count() from Opportunity where SBQQ__PrimaryQuote__c != null and id in: lstOppIds]);
+        system.debug('primary quote opportunity count: '+ [select count() from Opportunity where SBQQ__PrimaryQuote__c != null and id in: lstOppIds]);
         for(Opportunity opp: [select id, StageName, SBQQ__Ordered__c, SBQQ__PrimaryQuote__c from Opportunity where id in: mapOppIdToQtId.keySet()]){
             //opp.SBQQ__PrimaryQuote__c = mapOppIdToQtId.get(opp.id);
             opp.SBQQ__Ordered__c = true;
             lstOppsToUpdate_2.add(opp);
         }
         
-        //update lstOppsToUpdate_2;
-        */
+        update lstOppsToUpdate_2;
+        
         
         
         /*
