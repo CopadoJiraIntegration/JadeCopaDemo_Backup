@@ -181,7 +181,7 @@ public with sharing class MultiSelectLookupController {
             insert reviewApprovers;
             String devCommentsToUpdate = '';
             if (!String.isEmpty(devInputComments)) {
-                devCommentsToUpdate = devInputComments + '\n' + System.now() + '\n\n';
+                devCommentsToUpdate = '\n' + System.now() + '\n' + devInputComments + '\n\n';
                 devCommentsToUpdate = devCommentsToUpdate + devComments;
                 System.debug('--devCommentsToUpdate--'+devCommentsToUpdate);
                 update new copado__User_Story__c(Id = userStoryId, Developer_Comments__c = devCommentsToUpdate);
