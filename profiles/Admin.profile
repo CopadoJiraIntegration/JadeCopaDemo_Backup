@@ -6323,6 +6323,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>blng__OrderAmendmentUtil</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>blng__OrderDAO</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -6337,6 +6341,10 @@
     <classAccesses>
         <apexClass>blng__OrderDomainTest</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>blng__OrderItemBillingSummary</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>blng__OrderItemConsumptionRateDAO</apexClass>
