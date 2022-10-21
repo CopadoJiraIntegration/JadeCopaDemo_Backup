@@ -152,6 +152,7 @@ public with sharing class MultiSelectLookupController {
     @AuraEnabled
     public static String createReviewRecords(
         List<Object> listOfSelectRecords,
+        List<Object> listOfExistingReviewers,
         Id userStoryId,
         String devInputComments,
         String devComments
@@ -186,11 +187,30 @@ public with sharing class MultiSelectLookupController {
                 System.debug('--devCommentsToUpdate--'+devCommentsToUpdate);
                 update new copado__User_Story__c(Id = userStoryId, Developer_Comments__c = devCommentsToUpdate);
             }
+            if (listOfExistingReviewers.size() > 0) {
+                updateReviewers(listOfExistingReviewers);
+            }
         } catch(Exception e) {
             responseMessage = e.getMessage();
 
         }
         return responseMessage;
+    }
+
+    public static List<Review_Approver__c> updateReviewers(List<Object> listOfExistingReviewers) {
+        System.debug('--listOfExistingReviewers--'+listOfExistingReviewers);
+        List<Review_Approver__c> reviewers = new List<Review_Approver__c>();
+        for (Object reviewItr : listOfExistingReviewers) {
+            String reviewerDetails = String.valueOf(reviewItr);
+            List<String> reviewerRecord = reviewerDetails.split(',');
+            reviewers.add(new Review_Approver__c(
+                Id = reviewerRecord[1].split('=')[1].removeEnd('}'),
+                Review_Status__c = 'Re-Review'
+            ));
+
+        }
+        update reviewers;
+        return null;
     }
 
     public class SObjectQueryResult {

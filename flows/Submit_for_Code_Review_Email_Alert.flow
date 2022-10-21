@@ -200,6 +200,13 @@
                 <elementReference>recordId</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>Review_Status__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Re-Review</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Review_Approver__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -328,7 +335,7 @@
     <textTemplates>
         <name>BodyTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You have been marked as a reviewer on the story {!Loop_Approvers.User_Story__r.Name}.&lt;/p&gt;&lt;p&gt;Please review the code from {!Loop_Approvers.User_Story__r.view_in_git_Dev__c}.&lt;/p&gt;&lt;p&gt;Request to review the PR within 24 hours of receiving email&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards,&lt;/p&gt;&lt;p&gt;Copado Team&lt;/p&gt;</text>
+        <text>&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You have been marked as a reviewer on the story &lt;a href=&quot;https://jadeglobalinc.lightning.force.com/lightning/r/copado__User_Story__c/{!Loop_Approvers.User_Story__c}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;https://jadeglobalinc.lightning.force.com/lightning/r/copado__User_Story__c/&lt;/a&gt;&lt;a href=&quot;https://jadeglobalinc.lightning.force.com/lightning/r/copado__User_Story__c/{!Loop_Approvers.User_Story__c}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!Loop_Approvers.User_Story__c}&lt;/a&gt;&lt;a href=&quot;https://jadeglobalinc.lightning.force.com/lightning/r/copado__User_Story__c/{!Loop_Approvers.User_Story__c}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;/view&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Please review the code from {!Loop_Approvers.User_Story__r.view_in_git_Dev__c}.&lt;/p&gt;&lt;p&gt;Request to review the PR within 24 hours of receiving email&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please see the developer comments below:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!Loop_Approvers.User_Story__r.Developer_Comments__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards,&lt;/p&gt;&lt;p&gt;Copado Team&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>SubjectTemplate</name>

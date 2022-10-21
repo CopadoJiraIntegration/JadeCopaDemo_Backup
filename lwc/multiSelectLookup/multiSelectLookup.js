@@ -55,6 +55,7 @@ export default class multiSelectLookup extends LightningElement {
             });
             this.isDialogDisplay = true; //display dialog
             this.isDisplayMessage = false;
+            this.isDisabled = false;
         }
         else{
             //display No records found message
@@ -192,29 +193,28 @@ export default class multiSelectLookup extends LightningElement {
     handleDoneClick(event) {
 
         console.log('-Inside the handleDoneClick--');
-        if (this.globalSelectedItems.length > 0) {
-            createReviewRecords({
-                listOfSelectRecords: this.globalSelectedItems,
-                userStoryId : this.recordId,
-                devInputComments : this.devCommentInput,
-                devComments : this.devComments
-            })
-            .then(result=>{ 
-                console.log('--result--',result);
-                if (result == '') {
-                    this.isSuccess = true;
-                }
-                else {
-                    this.errorMessage = result;
-                }
-                console.log('--Records saved--',result);
-            })
-            .catch(error=>{
-                this.errorMessage = error;
-                this.items = undefined;
-                this.isDialogDisplay = false;
-            })
-        }
+        createReviewRecords({
+            listOfSelectRecords: this.globalSelectedItems,
+            listOfExistingReviewers : this.existingItems,
+            userStoryId : this.recordId,
+            devInputComments : this.devCommentInput,
+            devComments : this.devComments
+        })
+        .then(result=>{ 
+            console.log('--result--',result);
+            if (result == '') {
+                this.isSuccess = true;
+            }
+            else {
+                this.errorMessage = result;
+            }
+            console.log('--Records saved--',result);
+        })
+        .catch(error=>{
+            this.errorMessage = error;
+            this.items = undefined;
+            this.isDialogDisplay = false;
+        })
 
     }
 
