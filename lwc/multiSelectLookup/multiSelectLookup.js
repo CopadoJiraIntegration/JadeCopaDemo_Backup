@@ -215,6 +215,7 @@ export default class multiSelectLookup extends LightningElement {
             this.items = undefined;
             this.isDialogDisplay = false;
         })
+        this.isDisabled = true;
 
     }
 

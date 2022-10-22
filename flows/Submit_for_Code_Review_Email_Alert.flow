@@ -75,9 +75,6 @@
         <label>Is Approvers Present</label>
         <locationX>491</locationX>
         <locationY>703</locationY>
-        <defaultConnector>
-            <targetReference>No_Approvers_assigned</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes_Approvers_Present</name>
@@ -102,12 +99,12 @@
         <locationX>489</locationX>
         <locationY>333</locationY>
         <defaultConnector>
-            <targetReference>No_Code_Committed_Screen</targetReference>
+            <targetReference>Select_Reviewer</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes_had_Code</name>
-            <conditionLogic>(1 OR 2 OR 3) AND (4)</conditionLogic>
+            <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Get_User_Story_Record.copado__Has_Apex_Code__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -116,28 +113,14 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Get_User_Story_Record.copado__Metadata_Types_in_Selection__c</leftValueReference>
-                <operator>Contains</operator>
-                <rightValue>
-                    <stringValue>ApexPage</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Get_User_Story_Record.copado__Metadata_Types_in_Selection__c</leftValueReference>
-                <operator>Contains</operator>
-                <rightValue>
-                    <stringValue>AuraDefinitionBundle</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
                 <leftValueReference>Get_User_Story_Record.copado__Apex_Code_Coverage__c</leftValueReference>
-                <operator>GreaterThanOrEqualTo</operator>
+                <operator>LessThan</operator>
                 <rightValue>
                     <numberValue>75.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Select_Reviewer</targetReference>
+                <targetReference>No_Code_Committed_Screen</targetReference>
             </connector>
             <label>Yes, had Code</label>
         </rules>
@@ -234,22 +217,6 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
-        <name>No_Approvers_assigned</name>
-        <label>No Approvers assigned</label>
-        <locationX>206</locationX>
-        <locationY>698</locationY>
-        <allowBack>false</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <fields>
-            <name>No_Approvers</name>
-            <fieldText>&lt;p&gt;There are no Approvers assigned for this story. &lt;/p&gt;&lt;p&gt;Please add the Review Approvers for this story from the related tab and try again.&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>false</showHeader>
-    </screens>
-    <screens>
         <description>Message to be shown when the User is trying to Submit the story for Code review, without any Code committed</description>
         <name>No_Code_Committed_Screen</name>
         <label>No Code Committed Screen</label>
@@ -260,7 +227,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>Display_Submitting_Message</name>
-            <fieldText>&lt;p&gt;This User Story does not have any Apex Code committed.&lt;/p&gt;&lt;p&gt;Story can only be submitted for Code review if it has any Code committed&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;This Story has Apex Code committed which is having test converage less than 75%&lt;/p&gt;&lt;p&gt;Please ensure the commit changes are 75% or more percent coverage&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
