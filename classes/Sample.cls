@@ -156,7 +156,7 @@ public class Sample {
             //insert lstQuoteToInsert;
             ////SBQQ.TriggerControl.disable();
             Database.SaveResult[] srList = Database.insert(lstQuoteToInsert, false);
-			SBQQ.TriggerControl.enable();		
+			//SBQQ.TriggerControl.enable();		
             for(Database.SaveResult sr : srList) {
                 if(sr.isSuccess()){
                     // Operation was successful, so get the ID of the record that was processed
