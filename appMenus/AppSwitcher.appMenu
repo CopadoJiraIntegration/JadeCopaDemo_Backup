@@ -256,4 +256,8 @@
         <name>copado__Copado_Lightning</name>
         <type>CustomApplication</type>
     </appMenuItems>
+    <appMenuItems>
+        <name>Jade Global Partner Community</name>
+        <type>Network</type>
+    </appMenuItems>
 </AppMenu>
