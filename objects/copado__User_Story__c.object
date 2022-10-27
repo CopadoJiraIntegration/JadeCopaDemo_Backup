@@ -9903,13 +9903,6 @@ copado__Release__r.copado__Project__r.copado__Deployment_Flow__r.copado__Git_Rep
         <fullName>Cannot_Deploy_If_Not_Approved</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-  OR(
-   copado__Has_Apex_Code__c,  
-    INCLUDES(
-     copado__Metadata_Types_in_Selection__c , 
-     &apos;ApexPage&apos;
-   )
-  ),
  Approval_status__c   &lt;  1,
   OR(
     copado__Promote_and_Deploy__c ,
