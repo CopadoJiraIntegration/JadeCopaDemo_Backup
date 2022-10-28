@@ -157,6 +157,16 @@ public with sharing class MultiSelectLookupController {
         String devInputComments,
         String devComments
     ) {
+        List<copado__User_Story__c> userStories = [
+            SELECT
+                Id,
+                Name,
+                Developer_Comments__c
+            FROM
+                copado__User_Story__c
+            WHERE
+                Id = :userStoryId
+        ];
         String responseMessage = '';
         System.debug('--listOfSelectRecords---'+listOfSelectRecords);
         System.debug('--userStoryId--'+userStoryId);
@@ -182,7 +192,8 @@ public with sharing class MultiSelectLookupController {
             insert reviewApprovers;
             String devCommentsToUpdate = '';
             if (!String.isEmpty(devInputComments)) {
-                devCommentsToUpdate = '\n' + System.now() + '\n' + devInputComments + '\n\n';
+                devCommentsToUpdate = '\n' + userStories[0].Name + ' ' + Date.today().format();
+                devCommentsToUpdate = '\n' + devInputComments + '\n\n';
                 devCommentsToUpdate = devCommentsToUpdate + devComments;
                 System.debug('--devCommentsToUpdate--'+devCommentsToUpdate);
                 update new copado__User_Story__c(Id = userStoryId, Developer_Comments__c = devCommentsToUpdate);
