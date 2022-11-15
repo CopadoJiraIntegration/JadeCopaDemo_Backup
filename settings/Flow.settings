@@ -19,6 +19,7 @@
     <isApexPluginAccessModifierRespected>true</isApexPluginAccessModifierRespected>
     <isEnhancedFlowListViewVisible>true</isEnhancedFlowListViewVisible>
     <isFlowApexContextRetired>true</isFlowApexContextRetired>
+    <isFlowBlockAccessToSessionIDEnabled>false</isFlowBlockAccessToSessionIDEnabled>
     <isManageFlowRequiredForAutomationCharts>false</isManageFlowRequiredForAutomationCharts>
     <isTimeResumedInSameRunContext>true</isTimeResumedInSameRunContext>
 </FlowSettings>
